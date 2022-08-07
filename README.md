@@ -9,7 +9,7 @@ Styles can be either applied globally
 ```python
 from aquarel import load_theme
 
-load_theme("arctic").apply()
+load_theme("arctic_light").apply()
 
 # ... plotting code here
 ```
@@ -17,7 +17,7 @@ load_theme("arctic").apply()
 ```python
 from aquarel import load_theme
 
-with load_theme("arctic"):
+with load_theme("arctic_light"):
     # ... plotting code here
 ```
 
@@ -37,7 +37,7 @@ theme = (
 from aquarel import load_theme
 
 theme = (
-    load_theme("arctic")
+    load_theme("arctic_light")
     .set_grid(width=2)
 )
 ```
@@ -49,17 +49,18 @@ theme = Theme.from_file("custom.json")
 theme.save("custom.json")
 ```
 
-If the simplified API of aquarel is not sufficient for you usecase, you can also directly modify the underlying `rcparams` with overrides:
+If the simplified API of aquarel is not sufficient for your use-case, you can also directly modify the underlying `rcparams` with overrides:
 ```python
 from aquarel import load_theme
 
-theme = load_theme("arctic").set_overrides({
+theme = load_theme("arctic_light").set_overrides({
     "ytick.minor.visible": False,
     "xtick.minor.visible": True
 })
 ```
 
 ## Themes
-| Name     | Description | Preview                |
-|:---------|:------------|:-----------------------|
-| `arctic` |             | ![](assets/arctic.png) |
+| Name           | Description                    | Preview                      |
+|:---------------|:-------------------------------|:-----------------------------|
+| `arctic_dark`  | Dark theme with frosty colors  | ![](assets/arctic_dark.png)  |
+| `arctic_light` | Light theme with frosty colors | ![](assets/arctic_light.png) |

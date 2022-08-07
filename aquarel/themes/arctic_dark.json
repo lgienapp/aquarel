@@ -1,7 +1,7 @@
 {
     "info": {
-        "name": "Arctic",
-        "description": "Light theme with cool colors."
+        "name": "arctic_dark",
+        "description": "Dark theme with frosty colors"
     },
     "params": {
         "grid": {
@@ -12,8 +12,7 @@
         "fonts": {
             "family": "sans-serif",
             "sans-serif": [
-                "Roboto",
-                "Helvetica",
+                "Helvetica Neue",
                 "Arial"
             ],
             "size": 12
@@ -35,27 +34,26 @@
         },
         "ticks": {
             "draw_minor": true,
-            "pad_major": 0.5,
-            "pad_minor": 0.5
+            "pad_major": 1,
+            "pad_minor": 1
         },
         "tick_labels": {},
         "colors": {
-            "figure_background_color": "white",
-            "plot_background_color": "white",
-            "axes_color": "black",
-            "line_color": "#0B4499",
-            "grid_color": "#cdcdcd",
-            "tick_color": "#999999",
-            "tick_label_color": "#222222",
+            "figure_background_color": "#3B4252",
+            "plot_background_color": "#4C566A",
+            "text_color": "#ECEFF4",
+            "axes_color": "#D8DEE9",
+            "line_color": "#D8DEE9",
+            "grid_color": "#ECEFF4",
+            "tick_color": "#D8DEE9",
+            "tick_label_color": "#ECEFF4",
             "palette": [
-                "#67bec8",
-                "#f4d04f",
-                "#7056a1",
-                "#fc5285",
-                "#34b8ff",
-                "#ff7f04",
-                "#48a949",
-                "#ff4e03"
+                "#8FBCBB",
+                "#BF616A",
+                "#D08770",
+                "#EBCB8B",
+                "#A3BE8C",
+                "#B48EAD"
             ]
         }
     },
