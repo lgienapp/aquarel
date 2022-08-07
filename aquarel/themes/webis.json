@@ -1,0 +1,52 @@
+{
+    "info": {
+        "name": "test",
+        "description": "a test theme",
+        "author": "aquarel"
+    },
+    "params": {
+        "grid": {
+            "draw": true,
+            "axis": "both",
+            "alpha": 0.5,
+            "width": 0.5
+        },
+        "fonts": {
+            "family": "sans-serif",
+            "serif": [
+                "Helvetica",
+                "Arial",
+                "DejaVu Sans"
+            ],
+            "size": 14
+        },
+        "axes": {
+            "width": 0.75,
+            "bottom": true,
+            "top": false,
+            "left": true,
+            "right": false,
+            "xmargin": 0,
+            "ymargin": 0
+        },
+        "ticks": {
+            "draw_minor": false
+        },
+        "colors": {
+            "background_color": "white",
+            "axes_color": "black",
+            "line_color": "#0B4499",
+            "grid_color": "#D9D9D9",
+            "palette": [
+                "#0B4499",
+                "#6EBB1F",
+                "#81017E",
+                "#EE014C",
+                "#FF3600",
+                "#FF850D",
+                "#FFD600"
+            ]
+        }
+    },
+    "overrides": {}
+}
