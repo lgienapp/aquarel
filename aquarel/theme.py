@@ -121,6 +121,7 @@ class Theme:
             "plot_background_color": "axes.facecolor",
             "axes_color": ["axes.edgecolor", "figure.edgecolor"],
             "line_color": "lines.color",
+            "text_color": ["text.color", "axes.titlecolor", "axes.labelcolor"],
             "grid_color": "grid.color",
             "tick_color": ["xtick.color", "ytick.color"],
             "tick_label_color": ["xtick.labelcolor", "ytick.labelcolor"],
@@ -364,6 +365,7 @@ class Theme:
         palette: Optional[List[str]] = None,
         figure_background_color: Optional[str] = None,
         plot_background_color: Optional[str] = None,
+        text_color: Optional[str] = None,
         axes_color: Optional[str] = None,
         axes_label_color: Optional[str] = None,
         line_color: Optional[str] = None,
@@ -376,6 +378,7 @@ class Theme:
         :param palette: The color palette to cycle through for plot elements
         :param figure_background_color: the background color of the whole figure
         :param plot_background_color: the background color of the plot only
+        :param text_color: color of text elements (plot title, axis title)
         :param axes_color: the color of the axis lines
         :param axes_label_color: the color of the axis labels
         :param line_color: the line color
@@ -389,6 +392,7 @@ class Theme:
             {
                 "figure_background_color": figure_background_color,
                 "plot_background_color": plot_background_color,
+                "text_color": text_color,
                 "axes_color": axes_color,
                 "line_color": line_color,
                 "grid_color": grid_color,
