@@ -194,7 +194,9 @@ class Theme:
         )
 
     def __enter__(self):
+        # Save current state
         self.rcparams_orig = mpl.rcParams
+        # Apply desired state
         self.apply()
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -257,6 +259,9 @@ class Theme:
         """
         Applies the theme
         """
+        # Clear current state
+        mpl.rcParams.update(mpl.rcParamsDefault)
+        # Apply desired state
         for top_key in self.params.keys():
             for key, value in self.params[top_key].items():
                 mapped_key = self._rcparams_mapping[top_key][key]
