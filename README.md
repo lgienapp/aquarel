@@ -4,22 +4,43 @@ Aquarel is a lightweight templating engine and wrapper around Matplotlibs' `rcpa
 Aquarel templates can be defined programmatically and be serialized and shared in a JSON format.
 
 ## Usage
+
+###### Applying a style
 Styles can be either applied globally
 
 ```python
 from aquarel import load_theme
 
-load_theme("arctic_light").apply()
-
+theme = load_theme("arctic_light")
+theme.apply()
 # ... plotting code here
+theme.apply_transforms()
 ```
 ...or with a context manager:
 ```python
 from aquarel import load_theme
 
 with load_theme("arctic_light"):
-    # ... plotting code here
+    figure = # ... plotting code here
 ```
+
+###### Transforms
+Themes may specify *transforms*. Transforms are functions applied on the finished plot to achieve aesthetics that are not possibly by means of `rcparams` only.
+For example, to trim the axes, one could apply the `trim` transform:
+```python
+from aquarel import load_theme
+
+with load_theme("arctic_light").set_transforms(trim=True):
+    figure = # ... plotting code here
+    
+# plt.show() or savefig() have to be called outside the context manager to have the transforms correctly applied.
+figure.savefig()
+```
+However, there is one important thing to keep in mind: since transforms require the matplotlib figure/axes object to be present and finished, they have to be applied **after** the plotting code.
+When using a theme with a context manager, this is automatically done in the `__exit__` call. If global usage is desired, `Theme.apply_transforms()` has to be called after every figure.
+This also means that calls that make use of the finished figure, i.e. `plt.show` or `plt.savefig` have to commence after transform application, so **outside** the context manager.
+
+###### Customization & Theme Creation
 
 Besides loading a predefined theme, you can create a new theme
 ```python

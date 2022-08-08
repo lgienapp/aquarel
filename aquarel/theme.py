@@ -3,6 +3,7 @@ from cycler import cycler
 import matplotlib as mpl
 import warnings
 import json
+from .transforms import trim, offset
 
 
 def _wrap_list_arg(arg):
@@ -86,6 +87,8 @@ class Theme:
         "extra bold",
         "black",
     ]
+    # Mapping from aquarely keys to transform functions
+    _transform_mapping = {"trim": trim, "offset": offset}
     # Mapping from aquarel keys to matplotlib rcparams
     _rcparams_mapping = {
         "title": {
@@ -177,10 +180,16 @@ class Theme:
             self.info["description"] = "No description available."
         self.params = {}
         self.overrides = {}
+        self.transforms = {}
 
     def __str__(self):
         return json.dumps(
-            {"info": self.info, "params": self.params, "overrides": self.overrides},
+            {
+                "info": self.info,
+                "params": self.params,
+                "overrides": self.overrides,
+                "transforms": self.transforms,
+            },
             indent=4,
         )
 
@@ -192,6 +201,7 @@ class Theme:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", mpl.cbook.MatplotlibDeprecationWarning)
             mpl.rcParams.update(self.rcparams_orig)
+        self.apply_transforms()
 
     def _update_params(self, param_key, value_dict):
         """
@@ -215,6 +225,17 @@ class Theme:
             # Add new options if previously unspecified
             self.params[param_key] = value_dict
 
+    def _update_transforms(self, value_dict):
+        # Filter unset attributes and attributes not in the base transform template
+        transforms = dict(
+            filter(
+                lambda x: (x[0] in self._transform_mapping.keys())
+                and (x[1] is not None),
+                value_dict.items(),
+            )
+        )
+        self.transforms = transforms
+
     def save(self, path: str):
         """
         Write the template to a template file
@@ -222,7 +243,12 @@ class Theme:
         """
         with open(path, "w") as f:
             json.dump(
-                {"info": self.info, "params": self.params, "overrides": self.overrides},
+                {
+                    "info": self.info,
+                    "params": self.params,
+                    "overrides": self.overrides,
+                    "transforms": self.transforms,
+                },
                 f,
                 indent=4,
             )
@@ -247,6 +273,19 @@ class Theme:
                     mpl.rcParams.update({mapped_key: value})
         if self.overrides is not None:
             mpl.rcParams.update(self.overrides)
+
+    def apply_transforms(self):
+        for transform, args in self.transforms.items():
+            self._transform_mapping[transform](**args)
+
+    def set_transforms(self, trim: Optional[bool] = None, offset: Optional[int] = None):
+        self._update_transforms(
+            {
+                "trim": {} if trim else None,
+                "offset": {"distance": offset} if offset is not None else None,
+            }
+        )
+        return self
 
     def set_overrides(self, rc: dict):
         """
@@ -590,4 +629,7 @@ class Theme:
         )
         setattr(c, "params", data["params"] if "params" in data.keys() else {})
         setattr(c, "overrides", data["overrides"] if "overrides" in data.keys() else {})
+        setattr(
+            c, "transforms", data["transforms"] if "transforms" in data.keys() else {}
+        )
         return c
