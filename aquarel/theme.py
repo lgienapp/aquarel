@@ -322,9 +322,7 @@ class Theme:
                 "size": size
                 if (size in self._font_size_options or type(size) == float)
                 else None,
-                "weight": weight
-                if (weight in self._font_weight_options or (0 < weight < 1000))
-                else None,
+                "weight": weight if weight in self._font_weight_options else None,
             },
         )
         return self
