@@ -1,0 +1,40 @@
+{
+    "info": {
+        "name": "minimal_light",
+        "description": "Light theme with minimal visual elements"
+    },
+    "params": {
+        "axes": {
+            "bottom": false,
+            "top": false,
+            "left": false,
+            "right": false
+        },
+        "ticks": {
+            "draw_minor": false,
+            "width_major": 0.5,
+            "size_major": 10
+        },
+        "fonts": {
+            "sans-serif": [
+                "Roboto"
+            ]
+        },
+        "axis_labels": {
+            "weight": "light"
+        },
+        "grid": {},
+        "colors": {
+            "figure_background_color": "#ffffff",
+            "plot_background_color": "#ffffff",
+            "tick_color": "#3e3e3e",
+            "tick_label_color": "5f5f5f"
+        }
+    },
+    "overrides": {},
+    "transforms": {
+        "offset": {
+            "distance": 5
+        }
+    }
+}
