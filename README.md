@@ -85,5 +85,7 @@ theme = load_theme("arctic_light").set_overrides({
 |:----------------|:-----------------------------------------|:------------------------------|
 | `arctic_dark`   | Dark theme with frosty colors            | ![](assets/arctic_dark.png)   |
 | `arctic_light`  | Light theme with frosty colors           | ![](assets/arctic_light.png)  |
+| `boxy_dark`     | Dark theme with enclosing box and grid   | ![](assets/boxy_dark.png)     |
+| `boxy_light`    | Light theme with enclosing box and grid  | ![](assets/boxy_light.png)    |
 | `minimal_dark`  | Dark theme with minimal visual elements  | ![](assets/minimal_dark.png)  |
 | `minimal_light` | Light theme with minimal visual elements | ![](assets/minimal_light.png) |
