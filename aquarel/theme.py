@@ -51,7 +51,7 @@ class Theme:
         "xx-large",
     ]
     # Options for font family
-    _font_family_options = ["serif", "sans-serif", "monospace", "cursive", "fantasy"]
+    _font_family_options = ["serif", "sans_serif", "monospace", "cursive", "fantasy"]
     # Options for font style
     _font_style_options = ["normal", "roman", "italic", "oblique"]
     # Options for font stretch. This is currently not implemented by matplotlib.

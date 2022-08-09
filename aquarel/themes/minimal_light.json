@@ -16,8 +16,9 @@
             "size_major": 10
         },
         "fonts": {
+            "family": "sans-serif",
             "sans-serif": [
-                "Roboto"
+                "Helvetica"
             ]
         },
         "axis_labels": {

@@ -1,7 +1,7 @@
 {
     "info": {
         "name": "umbra_light",
-        "description": "Balanced light theme based on the penumbra color scheme"
+        "description": "A balanced light theme based on the penumbra color scheme"
     },
     "params": {
         "axes": {
@@ -32,6 +32,7 @@
             "width": 0.5
         },
         "fonts": {
+            "family": "sans_serif",
             "sans-serif": [
                 "Arial"
             ]
