@@ -1,7 +1,7 @@
 {
     "info": {
         "name": "umbra_light",
-        "description": "A balanced light theme based on the penumbra color scheme"
+        "description": "Balanced light theme based on the penumbra color scheme"
     },
     "params": {
         "axes": {
