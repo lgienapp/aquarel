@@ -183,6 +183,7 @@ class Theme:
         self.transforms = {}
 
     def __str__(self):
+        """Renders theme as JSON string"""
         return json.dumps(
             {
                 "info": self.info,
@@ -228,6 +229,11 @@ class Theme:
             self.params[param_key] = value_dict
 
     def _update_transforms(self, value_dict):
+        """
+        Updates the transforms of the theme.
+        :param value_dict: dictionary of transform names and args
+        :return:
+        """
         # Filter unset attributes and attributes not in the base transform template
         transforms = dict(
             filter(
@@ -240,7 +246,7 @@ class Theme:
 
     def save(self, path: str):
         """
-        Write the template to a template file
+        Write the template to a JSON template file
         :param path: file to write the template to
         """
         with open(path, "w") as f:
@@ -280,10 +286,19 @@ class Theme:
             mpl.rcParams.update(self.overrides)
 
     def apply_transforms(self):
+        """
+        Applies the themes' transforms
+        """
         for transform, args in self.transforms.items():
             self._transform_mapping[transform](**args)
 
     def set_transforms(self, trim: Optional[bool] = None, offset: Optional[int] = None):
+        """
+        Set the transforms
+        :param trim: if true, trim the axes to the nearest major tick
+        :param offset: offset shift of the axes in pt. Applies to all axes.
+        :return: self
+        """
         self._update_transforms(
             {
                 "trim": {} if trim else None,
@@ -344,10 +359,10 @@ class Theme:
         """
         Set grid styling options.
         :param draw: True if grid should be drawn, False otherwise, default: False
-        :param axis: axes along which the grid should be drawn, can be "", default: "both"
-        :param ticks: which tick level to base the grid on, can be "", default: "major"
-        :param alpha: the alpha level to draw the grid with, default: 1.0
-        :param style: the line style to draw the grid with, default: "-"
+        :param axis: axes along which the grid should be drawn, can be {"both", "x", "y"}, default: "both"
+        :param ticks: which tick level to base the grid on, can be {"major", "minor"}, default: "major"
+        :param alpha: the alpha level to draw the grid with, can be float between 0 and 1, default: 1.0
+        :param style: the line style to draw the grid with, can be {"-", "--", "-.", ":", ""}, default: "-"
         :param width: the line width to draw the grid with in pt, default: 0.8
         :return: self
         """
@@ -357,7 +372,7 @@ class Theme:
                 "draw": draw,
                 "axis": axis if axis in self._axis_options else None,
                 "ticks": ticks if ticks in self._tick_options else None,
-                "alpha": alpha,
+                "alpha": alpha if 0 <= alpha <= 1 else None,
                 "style": style if style in self._line_style_options else None,
                 "width": width,
             },
@@ -377,15 +392,15 @@ class Theme:
     ):
         """
         Set axis styling options
-        :param width: edge line width
-        :param top: display top axis
-        :param bottom: display bottom axis
-        :param left: display left axis
-        :param right: dislpay right axis
-        :param xmargin: padding added to the x-axis, expressed as margin times the data interval
-        :param ymargin: padding added to the y-axis, expressed as margin times the data interval
-        :param zmargin: padding added to the z-axis, expressed as margin times the data interval
-        :return:
+        :param width: axis line width, default: 1.0
+        :param top: display top axis, default: True
+        :param bottom: display bottom axis, default: True
+        :param left: display left axis, default: True
+        :param right: dislpay right axis, default: True
+        :param xmargin: padding added to the x-axis, expressed as margin times the data interval, default: 0.05
+        :param ymargin: padding added to the y-axis, expressed as margin times the data interval, default: 0.05
+        :param zmargin: padding added to the z-axis, expressed as margin times the data interval, default: 0.05
+        :return: self
         """
         self._update_params(
             "axes",
@@ -417,7 +432,7 @@ class Theme:
     ):
         """
 
-        :param palette: The color palette to cycle through for plot elements
+        :param palette: The color palette to cycle through for plot elements, should be list of valid color arguments
         :param figure_background_color: the background color of the whole figure
         :param plot_background_color: the background color of the plot only
         :param text_color: color of text elements (plot title, axis title)
@@ -455,9 +470,9 @@ class Theme:
         """
         Set axis label styling options.
         :param pad: padding of the axis label
-        :param size: font size of the axis label
-        :param weight: font weight of the axis label
-        :return:
+        :param size: font size of the axis label, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "normal"
+        :param weight: font weight of the axis label, can be {"ultralight", "light", "normal", "regular", "book", "medium", "roman", "semibold", "demibold", "demi", "bold", "heavy", "extra bold", "black"}, default: "normal"
+        :return: self
         """
         self._update_params(
             "axis_labels",
@@ -480,13 +495,13 @@ class Theme:
     ):
         """
         Set tick label styling options.
-        :param location: location of the tick labels
-        :param size: size of the tick label,
-        :param left: whether to draw the tick labels to the left of the y-axis
-        :param right: whether to draw the tick labels to the right of the y-axis
-        :param bottom: whether to draw the tick labels at the bottom of the x-axis
-        :param top: whether to draw the tick labels at the top of the x-axis
-        :return:
+        :param location: location of the tick labels, can be {"left", "right", "bottom", "top", "center"}, default: center
+        :param size: size of the tick label, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "normal"
+        :param left: whether to draw the tick labels to the left of the y-axis, default: True
+        :param right: whether to draw the tick labels to the right of the y-axis, default: False
+        :param bottom: whether to draw the tick labels at the bottom of the x-axis, default: True
+        :param top: whether to draw the tick labels at the top of the x-axis, default: False
+        :return: self
         """
         self._update_params(
             "tick_labels",
@@ -516,17 +531,17 @@ class Theme:
     ):
         """
         Set styling options for ticks.
-        :param x_align:
-        :param y_align:
-        :param direction:
-        :param draw_minor:
-        :param width_major:
-        :param width_minor:
-        :param size_major:
-        :param size_minor:
-        :param pad_major:
-        :param pad_minor:
-        :return:
+        :param x_align: alignment of ticks along the horizontal axes, can be {"center", "right", "left"}, default: "center"
+        :param y_align: alignment of ticks along the vertical axes, can be {"center", "top", "bottom", "baseline", "center_baseline"}, default: "center_baseline"
+        :param direction: direction the ticks should be facing, can be {"in", "out", "inout"}, default: "out"
+        :param draw_minor: whether to draw minor ticks, default: False
+        :param width_major: width of major ticks in pt, default: 0.8
+        :param width_minor: width of minor ticks in pt, default: 0.6
+        :param size_major: size of major ticks in pt, default: 3.5
+        :param size_minor: size of minor ticks in pt, default: 2
+        :param pad_major: padding of major ticks in pt, default: 3.5
+        :param pad_minor: padding of minor ticks in pt, default: 3.4
+        :return: self
         """
         self._update_params(
             "ticks",
@@ -554,8 +569,8 @@ class Theme:
     def set_lines(self, style: Optional[str] = None, width: Optional[float] = None):
         """
         Set line styling options.
-        :param style: the style to draw lines with
-        :param width: the width to draw lines with in pt
+        :param style: the style to draw lines with, can be {"-", "--", "-.", ":", ""}, default: "-"
+        :param width: the width to draw lines with in pt, default: 1.5
         :return: self
         """
         self._update_params(
@@ -583,17 +598,17 @@ class Theme:
     ):
         """
         Set font styling options.
-        :param family: font family to use
+        :param family: font family to use, can be {}, default: sans-serif
         :param cursive: which font(s) to use for cursive text
         :param fantasy: which font(s) to use for fantasy text
         :param monospace: which  font(s) to use for monospace text
         :param sans_serif: which font(s) to use for sans-serif text
         :param serif: which font(s) to use for serif text
-        :param size: base font size in pt that all other elements scale relative to
-        :param stretch: font stretch
-        :param style: font style
-        :param variant: font variant
-        :param weight: font weight
+        :param size: base font size in pt that all other elements scale relative to, default: 10.0
+        :param stretch: font stretch, can be {"ultra-condensed", "extra-condensed", "condensed", "semi-condensed", "normal", "semi-expanded", "expanded", "extra-expanded", "ultra-expanded", "wider", "narrower"}, default: normal
+        :param style: font style, can be {"normal", "roman", "italic", "oblique"}, default: normal
+        :param variant: font variant, can be {"normal", "small-caps"}, default: normal
+        :param weight: font weight, can be {"ultralight", "light", "normal", "regular", "book", "medium", "roman", "semibold", "demibold", "demi", "bold", "heavy", "extra bold", "black"}, default: normal
         :return: self
         """
         self._update_params(
@@ -616,12 +631,22 @@ class Theme:
 
     @classmethod
     def from_file(cls, filename: str):
+        """
+        Initialize a theme from a theme file
+        :param filename: file to load theme dictionary from
+        :return: cls
+        """
         with open(filename, "r") as f:
             data = json.load(f)
         return cls.from_dict(data)
 
     @classmethod
     def from_dict(cls, data: dict):
+        """
+        Initialize a theme from a dictionary
+        :param data: theme dictionary to initialize from
+        :return: cls
+        """
         c = cls()
         setattr(
             c,
