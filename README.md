@@ -1,7 +1,13 @@
 # Aquarel 🎨 
 
+![](https://img.shields.io/pypi/v/aquarel?style=for-the-badge) ![](https://img.shields.io/pypi/l/aquarel?style=for-the-badge)
+
 Aquarel is a lightweight templating engine and wrapper around Matplotlibs' `rcparams` to make styling plots simple.
 Aquarel templates can be defined programmatically and be serialized and shared in a JSON format.
+
+## Installation
+
+Install via pip: `pip install aquarel`
 
 ## Usage
 
@@ -81,6 +87,10 @@ theme = load_theme("arctic_light").set_overrides({
 ```
 
 ## Themes
+
+aquarel ships with several pre-defined themes that are designed to showcase its templating capabilities. 
+Add your own with a pull request!
+
 | Name            | Description                                                                                      | Preview                       |
 |:----------------|:-------------------------------------------------------------------------------------------------|:------------------------------|
 | `arctic_dark`   | Frosty dark theme based on the  [nord](https://github.com/arcticicestudio/nord) color scheme     | ![](assets/arctic_dark.png)   |
