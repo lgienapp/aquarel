@@ -320,7 +320,7 @@ class Theme:
         :return: self
         """
         self._update_params(
-            "grid",
+            "title",
             {
                 "location": location if location in self._location_options else None,
                 "pad": pad,
