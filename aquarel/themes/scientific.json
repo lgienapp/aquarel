@@ -1,0 +1,73 @@
+{
+    "info": {
+        "name": "scientific",
+        "description": "Space-efficient and color-blind friendly theme for printing on paper"
+    },
+    "params": {
+        "axes": {
+            "bottom": true,
+            "top": false,
+            "left": true,
+            "right": false,
+            "xmargin": 0,
+            "ymargin": 0
+        },
+        "axis_labels": {
+            "pad": -1,
+            "size": "large"
+        },
+        "ticks": {
+            "direction": "in",
+            "draw_minor": true,
+            "width_major": 2,
+            "width_minor": 1,
+            "size_major": 10,
+            "size_minor": 6
+        },
+        "tick_labels": {
+            "size": "large"
+        },
+        "title": {
+            "location": "center",
+            "pad": -2,
+            "size": "x-large"
+        },
+        "grid": {
+            "draw": true,
+            "axis": "both",
+            "ticks": "major",
+            "alpha": 0.5,
+            "width": 0.5
+        },
+        "fonts": {
+            "family": "sans_serif",
+            "sans-serif": [
+                "Arial"
+            ]
+        },
+        "colors": {
+            "figure_background_color": "white",
+            "plot_background_color": "white",
+            "text_color": "black",
+            "axes_color": "#555",
+            "grid_color": "#555",
+            "tick_color": "#555",
+            "tick_label_color": "black",
+            "palette": [
+                "#56B4DF",
+                "#D55E00",
+                "#009E73",
+                "#4EB67F",
+                "#E69F00",
+                "#CC79A7"
+            ]
+        }
+    },
+    "overrides": {},
+    "transforms": {
+        "trim": {},
+        "offset": {
+            "distance": 10
+        }
+    }
+}
