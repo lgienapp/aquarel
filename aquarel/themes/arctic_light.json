@@ -1,7 +1,7 @@
 {
     "info": {
         "name": "arctic_light",
-        "description": "Light theme with frosty colors"
+        "description": "Frosty light theme based on the  nord) color scheme"
     },
     "params": {
         "grid": {

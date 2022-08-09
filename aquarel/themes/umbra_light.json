@@ -1,0 +1,59 @@
+{
+    "info": {
+        "name": "umbra_light",
+        "description": "Balanced light theme based on the penumbra color scheme"
+    },
+    "params": {
+        "axes": {
+            "bottom": true,
+            "top": false,
+            "left": true,
+            "right": false,
+            "xmargin": 0,
+            "ymargin": 0
+        },
+        "ticks": {
+            "direction": "inout",
+            "draw_minor": true,
+            "width_major": 2,
+            "width_minor": 0.75,
+            "size_major": 10,
+            "size_minor": 3
+        },
+        "title": {
+            "location": "left",
+            "pad": 10,
+            "weight": "bold"
+        },
+        "grid": {
+            "draw": true,
+            "axis": "both",
+            "ticks": "major",
+            "width": 0.5
+        },
+        "fonts": {
+            "sans-serif": [
+                "Arial"
+            ]
+        },
+        "colors": {
+            "figure_background_color": "white",
+            "plot_background_color": "#FFFDFB",
+            "text_color": "#3E4044",
+            "axes_color": "#303338",
+            "grid_color": "#24272B",
+            "tick_color": "#24272B",
+            "tick_label_color": "#24272B",
+            "palette": [
+                "#8C96EC",
+                "#E18163",
+                "#B49E33",
+                "#4EB67F",
+                "#D68B47",
+                "#BE85D1"
+            ]
+        }
+    },
+    "overrides": {},
+    "transforms": {}
+}

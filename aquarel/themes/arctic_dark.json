@@ -1,7 +1,7 @@
 {
     "info": {
         "name": "arctic_dark",
-        "description": "Dark theme with frosty colors"
+        "description": "Frosty dark theme based on the nord color scheme"
     },
     "params": {
         "grid": {

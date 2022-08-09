@@ -81,11 +81,13 @@ theme = load_theme("arctic_light").set_overrides({
 ```
 
 ## Themes
-| Name            | Description                              | Preview                       |
-|:----------------|:-----------------------------------------|:------------------------------|
-| `arctic_dark`   | Dark theme with frosty colors            | ![](assets/arctic_dark.png)   |
-| `arctic_light`  | Light theme with frosty colors           | ![](assets/arctic_light.png)  |
-| `boxy_dark`     | Dark theme with enclosing box and grid   | ![](assets/boxy_dark.png)     |
-| `boxy_light`    | Light theme with enclosing box and grid  | ![](assets/boxy_light.png)    |
-| `minimal_dark`  | Dark theme with minimal visual elements  | ![](assets/minimal_dark.png)  |
-| `minimal_light` | Light theme with minimal visual elements | ![](assets/minimal_light.png) |
+| Name            | Description                                                                                      | Preview                       |
+|:----------------|:-------------------------------------------------------------------------------------------------|:------------------------------|
+| `arctic_dark`   | Frosty dark theme based on the  [nord](https://github.com/arcticicestudio/nord) color scheme                                            | ![](assets/arctic_dark.png)   |
+| `arctic_light`  | Frosty dark theme based on the  [nord](https://github.com/arcticicestudio/nord) color scheme                                                            | ![](assets/arctic_light.png)  |
+| `boxy_dark`     | Dark theme with enclosing box and grid                                                           | ![](assets/boxy_dark.png)     |
+| `boxy_light`    | Light theme with enclosing box and grid                                                          | ![](assets/boxy_light.png)    |
+| `minimal_dark`  | Dark theme with minimal visual elements                                                          | ![](assets/minimal_dark.png)  |
+| `minimal_light` | Light theme with minimal visual elements                                                         | ![](assets/minimal_light.png) |
+| `umbra_dark`    | Balanced dark theme based on the [penumbra](https://github.com/nealmckee/penumbra) color scheme  | ![](assets/umbra_dark.png)    |
+| `umbra_light`   | Balanced light theme based on the [penumbra](https://github.com/nealmckee/penumbra) color scheme | ![](assets/umbra_light.png)   |
