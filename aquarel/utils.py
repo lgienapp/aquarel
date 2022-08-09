@@ -37,3 +37,22 @@ def _get_themes():
             glob.glob(f"{loc}/themes/*.json"),
         )
     )
+
+def make_samples():
+    """
+    Generates sample plots for all themes to be used in documentation
+    """
+    import numpy as np
+    import matplotlib.pyplot as plt
+    for theme in list_themes():
+        with load_theme(theme):
+            fig, ax = plt.subplots(1, 1)
+            x = np.linspace(0.0, 4.0)
+            plt.plot(x, np.cos(2 * np.pi * x) * np.exp(-x))
+            plt.plot(x, np.sin(2 * np.pi * x) * np.exp(-x))
+            plt.plot(x, np.sin(2 * np.pi * x) * np.log(x))
+            ax.set_title(theme)
+            ax.set_xlabel("X-Axis")
+            ax.set_ylabel("Y-Axis")
+        fig.savefig(f"assets/{theme}.png", dpi=75, transparent=False, facecolor=fig.get_facecolor(),
+                    bbox_inches='tight')
