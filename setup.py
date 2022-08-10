@@ -17,6 +17,8 @@ setuptools.setup(
     project_urls={
         "Bug Tracker": "https://github.com/lgienapp/aquarel/issues"
     },
+    package_data={'aquarel': ['themes/*.json']},
+    include_package_data=True,
     install_requires=['matplotlib', 'cycler'],
     keywords=["theme", "plotting", "visualization", "styling", "matplotlib"],
     classifiers=[  # https://pypi.org/classifiers
