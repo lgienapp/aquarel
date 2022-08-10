@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setuptools.setup(
     name='aquarel',
     packages=['aquarel'],
-    version='0.0.1',
+    version='0.0.2',
     license='MIT',
     description='Lightweight templating engine for matplotlib',
     long_description=long_description,
