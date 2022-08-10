@@ -34,7 +34,7 @@ def _get_themes():
     return dict(
         map(
             lambda x: (x.split("/")[-1].split(".")[0], x),
-            glob.glob(f"{loc}/themes/*.json"),
+            glob.glob(os.path.join(loc, 'themes', '*.json')),
         )
     )
 
