@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setuptools.setup(
     name='aquarel',
     packages=['aquarel'],
-    version='0.0.2',
+    version='0.0.3',
     license='MIT',
     description='Lightweight templating engine for matplotlib',
     long_description=long_description,
@@ -30,5 +30,5 @@ setuptools.setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
     ],
-    download_url="https://github.com/lgienapp/aquarel/archive/refs/tags/v0.0.1.tar.gz",
+    download_url="https://github.com/lgienapp/aquarel/archive/refs/tags/v0.0.3.tar.gz",
 )
