@@ -2,6 +2,26 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+def rotate_ylabel(degrees: int):
+    """
+    Rotates the y-labels of the current plot.
+    :param degrees: rotation in degrees
+    """
+    axes = plt.gcf().axes
+    for ax_i in axes:
+        ax_i.tick_params(axis='y', rotation=degrees)
+
+
+def rotate_xlabel(degrees: int):
+    """
+    Rotates the x-labels of the current plot.
+    :param degrees: rotation in degrees
+    """
+    axes = plt.gcf().axes
+    for ax_i in axes:
+        ax_i.tick_params(axis='x', rotation=degrees)
+
+
 def offset(distance: int):
     """
     Offsets the plot spines.

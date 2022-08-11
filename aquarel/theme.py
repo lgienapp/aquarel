@@ -3,7 +3,7 @@ from cycler import cycler
 import matplotlib as mpl
 import warnings
 import json
-from .transforms import trim, offset
+from .transforms import *
 
 
 def _wrap_list_arg(arg):
@@ -88,7 +88,7 @@ class Theme:
         "black",
     ]
     # Mapping from aquarely keys to transform functions
-    _transform_mapping = {"trim": trim, "offset": offset}
+    _transform_mapping = {"trim": trim, "offset": offset, "rotate_xlabel": rotate_xlabel, "rotate_ylabel": rotate_ylabel}
     # Mapping from aquarel keys to matplotlib rcparams
     _rcparams_mapping = {
         "title": {
@@ -292,17 +292,28 @@ class Theme:
         for transform, args in self.transforms.items():
             self._transform_mapping[transform](**args)
 
-    def set_transforms(self, trim: Optional[bool] = None, offset: Optional[int] = None):
+    def set_transforms(
+        self,
+        trim: Optional[bool] = None,
+        offset: Optional[int] = None,
+        rotate_xlabel: Optional[int] = None,
+        rotate_ylabel: Optional[int] = None
+    ):
         """
         Set the transforms
         :param trim: if true, trim the axes to the nearest major tick
-        :param offset: offset shift of the axes in pt. Applies to all axes.
+        :param offset: offset shift of the axes in pt. Applies to all axes
+        :param rotate_xlabel: rotation of x-axis labels in degrees
+        :param rotate_ylabel: rotation of y-axis labels in degrees
+        :param log_axes: set log scale for the specified axes, can be {'both', 'x', 'y'}
         :return: self
         """
         self._update_transforms(
             {
                 "trim": {} if trim else None,
                 "offset": {"distance": offset} if offset is not None else None,
+                "rotate_xlabel": {"degrees": rotate_xlabel} if rotate_xlabel is not None else None,
+                "rotate_ylabel": {"degrees": rotate_ylabel} if rotate_ylabel is not None else None,
             }
         )
         return self
