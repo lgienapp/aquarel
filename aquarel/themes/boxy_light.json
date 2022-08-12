@@ -33,6 +33,7 @@
             "figure_background_color": "white",
             "plot_background_color": "white",
             "text_color": "black",
+            "line_color": "black",
             "grid_color": "#aaaaaa",
             "tick_color": "black",
             "tick_label_color": "black",

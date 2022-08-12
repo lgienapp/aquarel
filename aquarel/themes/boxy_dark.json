@@ -34,6 +34,7 @@
             "plot_background_color": "black",
             "text_color": "white",
             "axes_color": "white",
+            "line_color": "white",
             "grid_color": "#eeeeee",
             "tick_color": "white",
             "tick_label_color": "white",

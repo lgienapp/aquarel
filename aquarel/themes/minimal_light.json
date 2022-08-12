@@ -28,6 +28,7 @@
         "colors": {
             "figure_background_color": "#ffffff",
             "plot_background_color": "#ffffff",
+            "line_color": "#000000",
             "tick_color": "#3e3e3e",
             "tick_label_color": "5f5f5f"
         }

@@ -41,6 +41,7 @@
             "figure_background_color": "white",
             "plot_background_color": "#FFFDFB",
             "text_color": "#3E4044",
+            "line_color": "#303338",
             "axes_color": "#303338",
             "grid_color": "#24272B",
             "tick_color": "#24272B",
