@@ -91,14 +91,14 @@ theme = load_theme("arctic_light").set_overrides({
 aquarel ships with several pre-defined themes that are designed to showcase its templating capabilities. 
 Add your own with a pull request!
 
-| Name            | Description                                                                                      | Preview                       |
-|:----------------|:-------------------------------------------------------------------------------------------------|:------------------------------|
-| `arctic_dark`   | Frosty dark theme based on the  [nord](https://github.com/arcticicestudio/nord) color scheme     | ![](assets/arctic_dark.png)   |
-| `arctic_light`  | Frosty dark theme based on the  [nord](https://github.com/arcticicestudio/nord) color scheme     | ![](assets/arctic_light.png)  |
-| `boxy_dark`     | Dark theme with enclosing box and grid                                                           | ![](assets/boxy_dark.png)     |
-| `boxy_light`    | Light theme with enclosing box and grid                                                          | ![](assets/boxy_light.png)    |
-| `minimal_dark`  | Dark theme with minimal visual elements                                                          | ![](assets/minimal_dark.png)  |
-| `minimal_light` | Light theme with minimal visual elements                                                         | ![](assets/minimal_light.png) |
-| `scientific`    | Space-efficient and color-blind friendly theme for printing on paper                             | ![](assets/scientific.png)    |
-| `umbra_dark`    | Balanced dark theme based on the [penumbra](https://github.com/nealmckee/penumbra) color scheme  | ![](assets/umbra_dark.png)    |
-| `umbra_light`   | Balanced light theme based on the [penumbra](https://github.com/nealmckee/penumbra) color scheme | ![](assets/umbra_light.png)   |
+| Name            | Description                                                                                      | Preview                                                                              |
+|:----------------|:-------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------|
+| `arctic_dark`   | Frosty dark theme based on the  [nord](https://github.com/arcticicestudio/nord) color scheme     | ![](https://github.com/lgienapp/aquarel/blob/main/assets/arctic_dark.png?raw=true)   |
+| `arctic_light`  | Frosty dark theme based on the  [nord](https://github.com/arcticicestudio/nord) color scheme     | ![](https://github.com/lgienapp/aquarel/blob/main/assets/arctic_light.png?raw=true)  |
+| `boxy_dark`     | Dark theme with enclosing box and grid                                                           | ![](https://github.com/lgienapp/aquarel/blob/main/assets/boxy_dark.png?raw=true)     |
+| `boxy_light`    | Light theme with enclosing box and grid                                                          | ![](https://github.com/lgienapp/aquarel/blob/main/assets/boxy_light.png?raw=true)    |
+| `minimal_dark`  | Dark theme with minimal visual elements                                                          | ![](https://github.com/lgienapp/aquarel/blob/main/assets/minimal_dark.png?raw=true)  |
+| `minimal_light` | Light theme with minimal visual elements                                                         | ![](https://github.com/lgienapp/aquarel/blob/main/assets/minimal_light.png?raw=true) |
+| `scientific`    | Space-efficient and color-blind friendly theme for printing on paper                             | ![](https://github.com/lgienapp/aquarel/blob/main/assets/scientific.png?raw=true)    |
+| `umbra_dark`    | Balanced dark theme based on the [penumbra](https://github.com/nealmckee/penumbra) color scheme  | ![](https://github.com/lgienapp/aquarel/blob/main/assets/umbra_dark.png?raw=true)    |
+| `umbra_light`   | Balanced light theme based on the [penumbra](https://github.com/nealmckee/penumbra) color scheme | ![](https://github.com/lgienapp/aquarel/blob/main/assets/umbra_light.png?raw=true)   |
