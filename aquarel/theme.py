@@ -88,7 +88,12 @@ class Theme:
         "black",
     ]
     # Mapping from aquarely keys to transform functions
-    _transform_mapping = {"trim": trim, "offset": offset, "rotate_xlabel": rotate_xlabel, "rotate_ylabel": rotate_ylabel}
+    _transform_mapping = {
+        "trim": trim,
+        "offset": offset,
+        "rotate_xlabel": rotate_xlabel,
+        "rotate_ylabel": rotate_ylabel,
+    }
     # Mapping from aquarel keys to matplotlib rcparams
     _rcparams_mapping = {
         "title": {
@@ -133,7 +138,7 @@ class Theme:
                 "boxplot.medianprops.color",
                 "boxplot.meanprops.color",
                 "boxplot.meanprops.markerfacecolor",
-                "boxplot.meanprops.markeredgecolor"
+                "boxplot.meanprops.markeredgecolor",
             ],
             "text_color": ["text.color", "axes.titlecolor", "axes.labelcolor"],
             "grid_color": "grid.color",
@@ -308,7 +313,7 @@ class Theme:
         trim: Optional[bool] = None,
         offset: Optional[int] = None,
         rotate_xlabel: Optional[int] = None,
-        rotate_ylabel: Optional[int] = None
+        rotate_ylabel: Optional[int] = None,
     ):
         """
         Set the transforms
@@ -323,8 +328,12 @@ class Theme:
             {
                 "trim": {} if trim else None,
                 "offset": {"distance": offset} if offset is not None else None,
-                "rotate_xlabel": {"degrees": rotate_xlabel} if rotate_xlabel is not None else None,
-                "rotate_ylabel": {"degrees": rotate_ylabel} if rotate_ylabel is not None else None,
+                "rotate_xlabel": {"degrees": rotate_xlabel}
+                if rotate_xlabel is not None
+                else None,
+                "rotate_ylabel": {"degrees": rotate_ylabel}
+                if rotate_ylabel is not None
+                else None,
             }
         )
         return self

@@ -9,7 +9,7 @@ def rotate_ylabel(degrees: int):
     """
     axes = plt.gcf().axes
     for ax_i in axes:
-        ax_i.tick_params(axis='y', rotation=degrees)
+        ax_i.tick_params(axis="y", rotation=degrees)
 
 
 def rotate_xlabel(degrees: int):
@@ -19,7 +19,7 @@ def rotate_xlabel(degrees: int):
     """
     axes = plt.gcf().axes
     for ax_i in axes:
-        ax_i.tick_params(axis='x', rotation=degrees)
+        ax_i.tick_params(axis="x", rotation=degrees)
 
 
 def offset(distance: int):

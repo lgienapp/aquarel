@@ -34,7 +34,7 @@ def _get_themes():
     return dict(
         map(
             lambda x: (os.path.basename(x).split(".")[0], x),
-            glob.glob(os.path.join(loc, 'themes', '*.json'))
+            glob.glob(os.path.join(loc, "themes", "*.json")),
         )
     )
 
@@ -45,11 +45,18 @@ def make_samples():
     """
     import seaborn as sns
     import matplotlib.pyplot as plt
+
     for theme in list_themes():
         with load_theme(theme):
             geysers = (
                 sns.load_dataset("geyser")
-                .rename(columns={"duration": "Duration", "kind": "Kind", "waiting": "Waiting"})
+                .rename(
+                    columns={
+                        "duration": "Duration",
+                        "kind": "Kind",
+                        "waiting": "Waiting",
+                    }
+                )
                 .replace({"long": "Long", "short": "Short"})
             )
             fig, ax = plt.subplots(1, 3, figsize=(15, 5))
@@ -58,14 +65,21 @@ def make_samples():
             ax[0].boxplot(
                 [
                     geysers.loc[geysers["Kind"] == "Long", "Duration"].tolist(),
-                    geysers.loc[geysers["Kind"] == "Short", "Duration"].tolist()
+                    geysers.loc[geysers["Kind"] == "Short", "Duration"].tolist(),
                 ],
                 vert=True,
                 patch_artist=True,
-                labels=geysers["Kind"].unique()
+                labels=geysers["Kind"].unique(),
             )
-            sns.kdeplot(x="Waiting", y="Duration", hue="Kind", data=geysers, ax=ax[1], fill=True)
+            sns.kdeplot(
+                x="Waiting", y="Duration", hue="Kind", data=geysers, ax=ax[1], fill=True
+            )
             sns.lineplot(x="Waiting", y="Duration", hue="Kind", data=geysers, ax=ax[2])
             plt.suptitle("Geysers")
-        fig.savefig(f"assets/{theme}.png", dpi=75, transparent=False, facecolor=fig.get_facecolor(),
-                    bbox_inches='tight')
+        fig.savefig(
+            f"assets/{theme}.png",
+            dpi=75,
+            transparent=False,
+            facecolor=fig.get_facecolor(),
+            bbox_inches="tight",
+        )
