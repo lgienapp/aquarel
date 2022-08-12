@@ -33,10 +33,11 @@ def _get_themes():
     loc = os.path.dirname(os.path.abspath(__file__))
     return dict(
         map(
-            lambda x: (x.split("/")[-1].split(".")[0], x),
-            glob.glob(os.path.join(loc, 'themes', '*.json')),
+            lambda x: (os.path.basename(x).split(".")[0], x),
+            glob.glob(os.path.join(loc, 'themes', '*.json'))
         )
     )
+
 
 def make_samples():
     """
