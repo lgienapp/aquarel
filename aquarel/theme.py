@@ -317,7 +317,7 @@ class Theme:
     ):
         """
         Set the transforms
-        :param trim: if true, trim the axes to the nearest major tick
+        :param trim: trims the axes to the nearest major tick, can be {"x", "y", "both"}
         :param offset: offset shift of the axes in pt. Applies to all axes
         :param rotate_xlabel: rotation of x-axis labels in degrees
         :param rotate_ylabel: rotation of y-axis labels in degrees
@@ -326,7 +326,7 @@ class Theme:
         """
         self._update_transforms(
             {
-                "trim": {} if trim else None,
+                "trim": {"axes": trim} if trim in self._axis_options else None,
                 "offset": {"distance": offset} if offset is not None else None,
                 "rotate_xlabel": {"degrees": rotate_xlabel}
                 if rotate_xlabel is not None
