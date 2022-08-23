@@ -94,6 +94,20 @@ class Theme:
         "rotate_xlabel": rotate_xlabel,
         "rotate_ylabel": rotate_ylabel,
     }
+    _legend_location_options = [
+        'best',
+        'upper right',
+        'upper left',
+        'lower left',
+        'lower right',
+        'right',
+        'center left',
+        'center right',
+        'lower center',
+        'upper center',
+        'center'
+    ]
+
     # Mapping from aquarel keys to matplotlib rcparams
     _rcparams_mapping = {
         "title": {
@@ -144,6 +158,8 @@ class Theme:
             "grid_color": "grid.color",
             "tick_color": ["xtick.color", "ytick.color"],
             "tick_label_color": ["xtick.labelcolor", "ytick.labelcolor"],
+            "legend_background_color": "legend.facecolor",
+            "legend_border_color": "legend.edgecolor",
             "axis_label_color": "axes.labelcolor",
             "palette": "axes.prop_cycle",
         },
@@ -182,6 +198,18 @@ class Theme:
             "left": "ytick.labelleft",
             "right": "ytick.labelright",
         },
+        "legend": {
+            "location": "legend.loc",
+            "round": "legend.fancybox",
+            "shadow": "legend.shadow",
+            "title_size": "legend.title_fontsize",
+            "text_size": "legend.fontsize",
+            "alpha": "legend.framealpha",
+            "marker_scale": "legend.markerscale",
+            "padding": "legend.borderpad",
+            "margin": "legend.borderaxespad",
+            "spacing": ["legend.handletextpad", "legend.labelspacing"]
+        }
     }
 
     def __init__(self, name: Optional[str] = None, description: Optional[str] = None):
@@ -460,9 +488,11 @@ class Theme:
         grid_color: Optional[str] = None,
         tick_color: Optional[str] = None,
         tick_label_color: Optional[str] = None,
+        legend_background_color: Optional[str] = None,
+        legend_border_color: Optional[str] = None,
+
     ):
         """
-
         :param palette: The color palette to cycle through for plot elements, should be list of valid color arguments
         :param figure_background_color: the background color of the whole figure
         :param plot_background_color: the background color of the plot only
@@ -473,6 +503,8 @@ class Theme:
         :param grid_color: the color of the grid lines
         :param tick_color: the color of the ticks
         :param tick_label_color: the color of the tick labels
+        :param legend_border_color: color of the legend border
+        :param legend_background_color: color of the legend background
         :return: self
         """
         self._update_params(
@@ -487,6 +519,8 @@ class Theme:
                 "tick_color": tick_color,
                 "tick_label_color": tick_label_color,
                 "axes_label_color": axes_label_color,
+                "legend_background_color": legend_background_color,
+                "legend_border_color": legend_border_color,
                 "palette": palette,
             },
         )
@@ -657,6 +691,50 @@ class Theme:
                 "variant": variant if variant in self._font_variant_options else None,
                 "weight": weight if weight in self._font_weight_options else None,
             },
+        )
+        return self
+
+    def set_legend(
+        self,
+        location: Optional[str] = None,
+        round: Optional[bool] = None,
+        shadow: Optional[bool] = None,
+        title_size: Optional[str] = None,
+        text_size: Optional[str] = None,
+        alpha: Optional[float] = None,
+        marker_scale: Optional[float] = None,
+        padding: Optional[Union[int, float]] = None,
+        margin: Optional[Union[int, float]] = None,
+        spacing: Optional[Union[int, float]] = None
+    ):
+        """
+        Set legend styling options.
+        :param location: The location of the legend. Can be {'best', 'upper right', 'upper left', 'lower left', 'lower right', 'right', 'center left', 'center right', 'lower center', 'upper center', 'center'} or a 2-tuple giving the coordinates of the lower-left corner. Default: 'best'
+        :param round: indicates if legend corners should be rounded or rectangular. Default: True
+        :param shadow: indicates if the legend should cast a shadow. Default: False
+        :param title_size: font size of the legend title, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "medium"
+        :param text_size: font size of the legend title, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "medium"
+        :param alpha: transparency of the legend patch.
+        :param marker_scale: the relative size of legend markers. Default: 1.0
+        :param padding: space between legend border and legend content in pt. Default: 0.4
+        :param margin: space between legend border and axes in pt. Default: 0.5
+        :param spacing: spacing of legend elements in pt. Default: 0.5
+        :return:
+        """
+        self._update_params(
+            "legend",
+            {
+                "location": location if (location in self._legend_location_options) or type(location) == tuple else None,
+                "round": round,
+                "shadow": shadow,
+                "title_size": title_size if title_size in self._font_size_options else None,
+                "text_size": text_size if text_size in self._font_size_options else None,
+                "alpha": alpha,
+                "marker_scale": marker_scale,
+                "padding": padding,
+                "margin": margin,
+                "spacing": spacing
+            }
         )
         return self
 
