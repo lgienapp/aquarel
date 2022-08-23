@@ -29,6 +29,10 @@
                 "Arial"
             ]
         },
+        "legend": {
+            "round": false,
+            "alpha": 1.0
+        },
         "colors": {
             "figure_background_color": "white",
             "plot_background_color": "white",
@@ -37,6 +41,8 @@
             "grid_color": "#aaaaaa",
             "tick_color": "black",
             "tick_label_color": "black",
+            "legend_border_color": "black",
+            "legend_background_color": "white",
             "palette": [
                 "#3c9797",
                 "#fc6464",
