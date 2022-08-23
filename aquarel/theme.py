@@ -326,7 +326,7 @@ class Theme:
         """
         self._update_transforms(
             {
-                "trim": {"axes": trim} if trim in self._axis_options else None,
+                "trim": {"axis": trim} if trim in self._axis_options else None,
                 "offset": {"distance": offset} if offset is not None else None,
                 "rotate_xlabel": {"degrees": rotate_xlabel}
                 if rotate_xlabel is not None
