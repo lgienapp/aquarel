@@ -60,7 +60,7 @@
     "overrides": {},
     "transforms": {
         "trim": {
-            "axes":  "both"
+            "axis":  "both"
         },
         "offset": {
             "distance": 10

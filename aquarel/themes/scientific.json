@@ -9,8 +9,8 @@
             "top": false,
             "left": true,
             "right": false,
-            "xmargin": 0,
-            "ymargin": 0
+            "xmargin": 0.02,
+            "ymargin": 0.02
         },
         "axis_labels": {
             "pad": -1,
@@ -67,7 +67,7 @@
     "overrides": {},
     "transforms": {
         "trim": {
-            "axes":  "both"
+            "axis":  "both"
         },
         "offset": {
             "distance": 10

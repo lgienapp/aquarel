@@ -9,8 +9,8 @@
             "top": true,
             "left": true,
             "right": true,
-            "xmargin": 0,
-            "ymargin": 0
+            "xmargin": 0.02,
+            "ymargin": 0.02
         },
         "ticks": {
             "draw_minor": true,
