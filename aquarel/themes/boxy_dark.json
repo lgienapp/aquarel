@@ -9,8 +9,8 @@
             "top": true,
             "left": true,
             "right": true,
-            "xmargin": 0,
-            "ymargin": 0
+            "xmargin": 0.02,
+            "ymargin": 0.02
         },
         "ticks": {
             "draw_minor": true,
@@ -29,6 +29,10 @@
                 "Arial"
             ]
         },
+        "legend": {
+            "round": false,
+            "alpha": 1.0
+        },
         "colors": {
             "figure_background_color": "black",
             "plot_background_color": "black",
@@ -38,6 +42,8 @@
             "grid_color": "#eeeeee",
             "tick_color": "white",
             "tick_label_color": "white",
+            "legend_border_color": "white",
+            "legend_background_color": "black",
             "palette": [
                 "#3c9797",
                 "#fc6464",

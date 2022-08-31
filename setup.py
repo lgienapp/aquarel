@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setuptools.setup(
     name='aquarel',
     packages=['aquarel'],
-    version='0.0.3',
+    version='0.0.4',
     license='MIT',
     description='Lightweight templating engine for matplotlib',
     long_description=long_description,
@@ -19,7 +19,8 @@ setuptools.setup(
     },
     package_data={'aquarel': ['themes/*.json']},
     include_package_data=True,
-    install_requires=['matplotlib', 'cycler'],
+    python_requires='>3.7',
+    install_requires=['matplotlib>=3.4.0', 'cycler'],
     keywords=["theme", "plotting", "visualization", "styling", "matplotlib"],
     classifiers=[  # https://pypi.org/classifiers
         'Development Status :: 4 - Beta',
@@ -30,5 +31,5 @@ setuptools.setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
     ],
-    download_url="https://github.com/lgienapp/aquarel/archive/refs/tags/v0.0.3.tar.gz",
+    download_url="https://github.com/lgienapp/aquarel/archive/refs/tags/v0.0.4.tar.gz",
 )

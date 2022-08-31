@@ -59,7 +59,9 @@
     },
     "overrides": {},
     "transforms": {
-        "trim": {},
+        "trim": {
+            "axis":  "both"
+        },
         "offset": {
             "distance": 10
         }

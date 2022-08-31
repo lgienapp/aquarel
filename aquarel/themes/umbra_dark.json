@@ -9,8 +9,8 @@
             "top": false,
             "left": true,
             "right": false,
-            "xmargin": 0,
-            "ymargin": 0
+            "xmargin": 0.02,
+            "ymargin": 0.02
         },
         "ticks": {
             "direction": "inout",

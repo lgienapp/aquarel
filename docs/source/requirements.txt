@@ -1,0 +1,4 @@
+cycler
+matplotlib>=3.4.0
+myst-parser
+Sphinx

@@ -94,6 +94,20 @@ class Theme:
         "rotate_xlabel": rotate_xlabel,
         "rotate_ylabel": rotate_ylabel,
     }
+    _legend_location_options = [
+        'best',
+        'upper right',
+        'upper left',
+        'lower left',
+        'lower right',
+        'right',
+        'center left',
+        'center right',
+        'lower center',
+        'upper center',
+        'center'
+    ]
+
     # Mapping from aquarel keys to matplotlib rcparams
     _rcparams_mapping = {
         "title": {
@@ -144,6 +158,8 @@ class Theme:
             "grid_color": "grid.color",
             "tick_color": ["xtick.color", "ytick.color"],
             "tick_label_color": ["xtick.labelcolor", "ytick.labelcolor"],
+            "legend_background_color": "legend.facecolor",
+            "legend_border_color": "legend.edgecolor",
             "axis_label_color": "axes.labelcolor",
             "palette": "axes.prop_cycle",
         },
@@ -182,6 +198,18 @@ class Theme:
             "left": "ytick.labelleft",
             "right": "ytick.labelright",
         },
+        "legend": {
+            "location": "legend.loc",
+            "round": "legend.fancybox",
+            "shadow": "legend.shadow",
+            "title_size": "legend.title_fontsize",
+            "text_size": "legend.fontsize",
+            "alpha": "legend.framealpha",
+            "marker_scale": "legend.markerscale",
+            "padding": "legend.borderpad",
+            "margin": "legend.borderaxespad",
+            "spacing": ["legend.handletextpad", "legend.labelspacing"]
+        }
     }
 
     def __init__(self, name: Optional[str] = None, description: Optional[str] = None):
@@ -225,6 +253,7 @@ class Theme:
     def _update_params(self, param_key, value_dict):
         """
         Updates the parameters of the theme.
+
         :param param_key: the parameter key to modify
         :param value_dict: the value dict to update the parameter key with
         """
@@ -247,8 +276,8 @@ class Theme:
     def _update_transforms(self, value_dict):
         """
         Updates the transforms of the theme.
+
         :param value_dict: dictionary of transform names and args
-        :return:
         """
         # Filter unset attributes and attributes not in the base transform template
         transforms = dict(
@@ -263,6 +292,7 @@ class Theme:
     def save(self, path: str):
         """
         Write the template to a JSON template file
+
         :param path: file to write the template to
         """
         with open(path, "w") as f:
@@ -317,7 +347,8 @@ class Theme:
     ):
         """
         Set the transforms
-        :param trim: if true, trim the axes to the nearest major tick
+
+        :param trim: trims the axes to the nearest major tick, can be {"x", "y", "both"}
         :param offset: offset shift of the axes in pt. Applies to all axes
         :param rotate_xlabel: rotation of x-axis labels in degrees
         :param rotate_ylabel: rotation of y-axis labels in degrees
@@ -326,7 +357,7 @@ class Theme:
         """
         self._update_transforms(
             {
-                "trim": {} if trim else None,
+                "trim": {"axis": trim} if trim in self._axis_options else None,
                 "offset": {"distance": offset} if offset is not None else None,
                 "rotate_xlabel": {"degrees": rotate_xlabel}
                 if rotate_xlabel is not None
@@ -341,6 +372,7 @@ class Theme:
     def set_overrides(self, rc: dict):
         """
         Set custom overrides of rcparam parameters directly
+
         :param rc: Dict of valid matplotlib rcparams
         :return: self
         """
@@ -356,6 +388,7 @@ class Theme:
     ):
         """
         Sets title styling options.
+
         :param location: the location of the title, one of {left, right, center} default: 'center'
         :param pad: pad between axes and title in pt, default: 6.0
         :param size: the font size of the title, float or one of {'xx-small', 'x-small', 'small', 'medium', 'large',
@@ -389,6 +422,7 @@ class Theme:
     ):
         """
         Set grid styling options.
+
         :param draw: True if grid should be drawn, False otherwise, default: False
         :param axis: axes along which the grid should be drawn, can be {"both", "x", "y"}, default: "both"
         :param ticks: which tick level to base the grid on, can be {"major", "minor"}, default: "major"
@@ -403,7 +437,7 @@ class Theme:
                 "draw": draw,
                 "axis": axis if axis in self._axis_options else None,
                 "ticks": ticks if ticks in self._tick_options else None,
-                "alpha": alpha if 0 <= alpha <= 1 else None,
+                "alpha": alpha,
                 "style": style if style in self._line_style_options else None,
                 "width": width,
             },
@@ -423,6 +457,7 @@ class Theme:
     ):
         """
         Set axis styling options
+
         :param width: axis line width, default: 1.0
         :param top: display top axis, default: True
         :param bottom: display bottom axis, default: True
@@ -460,8 +495,12 @@ class Theme:
         grid_color: Optional[str] = None,
         tick_color: Optional[str] = None,
         tick_label_color: Optional[str] = None,
+        legend_background_color: Optional[str] = None,
+        legend_border_color: Optional[str] = None,
+
     ):
         """
+        Sets color options.
 
         :param palette: The color palette to cycle through for plot elements, should be list of valid color arguments
         :param figure_background_color: the background color of the whole figure
@@ -473,6 +512,8 @@ class Theme:
         :param grid_color: the color of the grid lines
         :param tick_color: the color of the ticks
         :param tick_label_color: the color of the tick labels
+        :param legend_border_color: color of the legend border
+        :param legend_background_color: color of the legend background
         :return: self
         """
         self._update_params(
@@ -487,6 +528,8 @@ class Theme:
                 "tick_color": tick_color,
                 "tick_label_color": tick_label_color,
                 "axes_label_color": axes_label_color,
+                "legend_background_color": legend_background_color,
+                "legend_border_color": legend_border_color,
                 "palette": palette,
             },
         )
@@ -500,6 +543,7 @@ class Theme:
     ):
         """
         Set axis label styling options.
+
         :param pad: padding of the axis label
         :param size: font size of the axis label, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "normal"
         :param weight: font weight of the axis label, can be {"ultralight", "light", "normal", "regular", "book", "medium", "roman", "semibold", "demibold", "demi", "bold", "heavy", "extra bold", "black"}, default: "normal"
@@ -526,6 +570,7 @@ class Theme:
     ):
         """
         Set tick label styling options.
+
         :param location: location of the tick labels, can be {"left", "right", "bottom", "top", "center"}, default: center
         :param size: size of the tick label, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "normal"
         :param left: whether to draw the tick labels to the left of the y-axis, default: True
@@ -562,6 +607,7 @@ class Theme:
     ):
         """
         Set styling options for ticks.
+
         :param x_align: alignment of ticks along the horizontal axes, can be {"center", "right", "left"}, default: "center"
         :param y_align: alignment of ticks along the vertical axes, can be {"center", "top", "bottom", "baseline", "center_baseline"}, default: "center_baseline"
         :param direction: direction the ticks should be facing, can be {"in", "out", "inout"}, default: "out"
@@ -600,6 +646,7 @@ class Theme:
     def set_lines(self, style: Optional[str] = None, width: Optional[float] = None):
         """
         Set line styling options.
+
         :param style: the style to draw lines with, can be {"-", "--", "-.", ":", ""}, default: "-"
         :param width: the width to draw lines with in pt, default: 1.5
         :return: self
@@ -629,6 +676,7 @@ class Theme:
     ):
         """
         Set font styling options.
+
         :param family: font family to use, can be {}, default: sans-serif
         :param cursive: which font(s) to use for cursive text
         :param fantasy: which font(s) to use for fantasy text
@@ -660,10 +708,56 @@ class Theme:
         )
         return self
 
+    def set_legend(
+        self,
+        location: Optional[str] = None,
+        round: Optional[bool] = None,
+        shadow: Optional[bool] = None,
+        title_size: Optional[str] = None,
+        text_size: Optional[str] = None,
+        alpha: Optional[float] = None,
+        marker_scale: Optional[float] = None,
+        padding: Optional[Union[int, float]] = None,
+        margin: Optional[Union[int, float]] = None,
+        spacing: Optional[Union[int, float]] = None
+    ):
+        """
+        Set legend styling options.
+
+        :param location: The location of the legend. Can be {'best', 'upper right', 'upper left', 'lower left', 'lower right', 'right', 'center left', 'center right', 'lower center', 'upper center', 'center'} or a 2-tuple giving the coordinates of the lower-left corner. Default: 'best'
+        :param round: indicates if legend corners should be rounded or rectangular. Default: True
+        :param shadow: indicates if the legend should cast a shadow. Default: False
+        :param title_size: font size of the legend title, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "medium"
+        :param text_size: font size of the legend title, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "medium"
+        :param alpha: transparency of the legend patch.
+        :param marker_scale: the relative size of legend markers. Default: 1.0
+        :param padding: space between legend border and legend content in pt. Default: 0.4
+        :param margin: space between legend border and axes in pt. Default: 0.5
+        :param spacing: spacing of legend elements in pt. Default: 0.5
+        :return: self
+        """
+        self._update_params(
+            "legend",
+            {
+                "location": location if (location in self._legend_location_options) or type(location) == tuple else None,
+                "round": round,
+                "shadow": shadow,
+                "title_size": title_size if title_size in self._font_size_options else None,
+                "text_size": text_size if text_size in self._font_size_options else None,
+                "alpha": alpha,
+                "marker_scale": marker_scale,
+                "padding": padding,
+                "margin": margin,
+                "spacing": spacing
+            }
+        )
+        return self
+
     @classmethod
     def from_file(cls, filename: str):
         """
         Initialize a theme from a theme file
+
         :param filename: file to load theme dictionary from
         :return: cls
         """
@@ -675,6 +769,7 @@ class Theme:
     def from_dict(cls, data: dict):
         """
         Initialize a theme from a dictionary
+
         :param data: theme dictionary to initialize from
         :return: cls
         """
