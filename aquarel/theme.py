@@ -437,7 +437,7 @@ class Theme:
                 "draw": draw,
                 "axis": axis if axis in self._axis_options else None,
                 "ticks": ticks if ticks in self._tick_options else None,
-                "alpha": alpha if 0 <= alpha <= 1 else None,
+                "alpha": alpha,
                 "style": style if style in self._line_style_options else None,
                 "width": width,
             },
