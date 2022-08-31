@@ -1,9 +1,15 @@
 # Aquarel 🎨 
 
-![](https://img.shields.io/pypi/v/aquarel?style=for-the-badge) ![](https://img.shields.io/pypi/l/aquarel?style=for-the-badge)
+[![PyPi](https://img.shields.io/pypi/v/aquarel)](https://pypi.org/project/aquarel/)
+[![License](https://img.shields.io/github/license/lgienapp/aquarel)]()
+[![Documentation Status](https://readthedocs.org/projects/aquarel/badge/?version=latest)](https://aquarel.readthedocs.io/en/latest/?badge=latest)
+
 
 Aquarel is a lightweight templating engine and wrapper around Matplotlibs' `rcparams` to make styling plots simple.
 Aquarel templates can be defined programmatically and be serialized and shared in a JSON format.
+
+Full documentation is available at [aquarel.readthedocs.io](https://aquarel.readthedocs.io/en/latest/?badge=latest).
+
 
 ## Installation
 
