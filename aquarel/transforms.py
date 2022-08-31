@@ -5,6 +5,7 @@ import numpy as np
 def rotate_ylabel(degrees: int):
     """
     Rotates the y-labels of the current plot.
+
     :param degrees: rotation in degrees
     """
     axes = plt.gcf().axes
@@ -15,6 +16,7 @@ def rotate_ylabel(degrees: int):
 def rotate_xlabel(degrees: int):
     """
     Rotates the x-labels of the current plot.
+
     :param degrees: rotation in degrees
     """
     axes = plt.gcf().axes
@@ -26,8 +28,8 @@ def offset(distance: int):
     """
     Offsets the plot spines.
     Code partly taken from https://github.com/mwaskom/seaborn/blob/563e96d3be1eaee8db8dfbccf7eed1f1c66dfd31/seaborn/utils.py#L292
+
     :param distance: offset distance int pt.
-    :return:
     """
     axes = plt.gcf().axes
     for ax_i in axes:
@@ -39,8 +41,8 @@ def trim(axis: str):
     """
     Trims axes of a plot to first and last major tick.
     Code partly taken from https://github.com/mwaskom/seaborn/blob/563e96d3be1eaee8db8dfbccf7eed1f1c66dfd31/seaborn/utils.py#L292
+
     :param axis: axes to apply the trim to. Can be {"x", "y", "both"}.
-    :return:
     """
     # Apply trim to all axes
     for ax_i in plt.gcf().axes:

@@ -253,6 +253,7 @@ class Theme:
     def _update_params(self, param_key, value_dict):
         """
         Updates the parameters of the theme.
+
         :param param_key: the parameter key to modify
         :param value_dict: the value dict to update the parameter key with
         """
@@ -275,8 +276,8 @@ class Theme:
     def _update_transforms(self, value_dict):
         """
         Updates the transforms of the theme.
+
         :param value_dict: dictionary of transform names and args
-        :return:
         """
         # Filter unset attributes and attributes not in the base transform template
         transforms = dict(
@@ -291,6 +292,7 @@ class Theme:
     def save(self, path: str):
         """
         Write the template to a JSON template file
+
         :param path: file to write the template to
         """
         with open(path, "w") as f:
@@ -345,6 +347,7 @@ class Theme:
     ):
         """
         Set the transforms
+
         :param trim: trims the axes to the nearest major tick, can be {"x", "y", "both"}
         :param offset: offset shift of the axes in pt. Applies to all axes
         :param rotate_xlabel: rotation of x-axis labels in degrees
@@ -369,6 +372,7 @@ class Theme:
     def set_overrides(self, rc: dict):
         """
         Set custom overrides of rcparam parameters directly
+
         :param rc: Dict of valid matplotlib rcparams
         :return: self
         """
@@ -384,6 +388,7 @@ class Theme:
     ):
         """
         Sets title styling options.
+
         :param location: the location of the title, one of {left, right, center} default: 'center'
         :param pad: pad between axes and title in pt, default: 6.0
         :param size: the font size of the title, float or one of {'xx-small', 'x-small', 'small', 'medium', 'large',
@@ -417,6 +422,7 @@ class Theme:
     ):
         """
         Set grid styling options.
+
         :param draw: True if grid should be drawn, False otherwise, default: False
         :param axis: axes along which the grid should be drawn, can be {"both", "x", "y"}, default: "both"
         :param ticks: which tick level to base the grid on, can be {"major", "minor"}, default: "major"
@@ -451,6 +457,7 @@ class Theme:
     ):
         """
         Set axis styling options
+
         :param width: axis line width, default: 1.0
         :param top: display top axis, default: True
         :param bottom: display bottom axis, default: True
@@ -493,6 +500,8 @@ class Theme:
 
     ):
         """
+        Sets color options.
+
         :param palette: The color palette to cycle through for plot elements, should be list of valid color arguments
         :param figure_background_color: the background color of the whole figure
         :param plot_background_color: the background color of the plot only
@@ -534,6 +543,7 @@ class Theme:
     ):
         """
         Set axis label styling options.
+
         :param pad: padding of the axis label
         :param size: font size of the axis label, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "normal"
         :param weight: font weight of the axis label, can be {"ultralight", "light", "normal", "regular", "book", "medium", "roman", "semibold", "demibold", "demi", "bold", "heavy", "extra bold", "black"}, default: "normal"
@@ -560,6 +570,7 @@ class Theme:
     ):
         """
         Set tick label styling options.
+
         :param location: location of the tick labels, can be {"left", "right", "bottom", "top", "center"}, default: center
         :param size: size of the tick label, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "normal"
         :param left: whether to draw the tick labels to the left of the y-axis, default: True
@@ -596,6 +607,7 @@ class Theme:
     ):
         """
         Set styling options for ticks.
+
         :param x_align: alignment of ticks along the horizontal axes, can be {"center", "right", "left"}, default: "center"
         :param y_align: alignment of ticks along the vertical axes, can be {"center", "top", "bottom", "baseline", "center_baseline"}, default: "center_baseline"
         :param direction: direction the ticks should be facing, can be {"in", "out", "inout"}, default: "out"
@@ -634,6 +646,7 @@ class Theme:
     def set_lines(self, style: Optional[str] = None, width: Optional[float] = None):
         """
         Set line styling options.
+
         :param style: the style to draw lines with, can be {"-", "--", "-.", ":", ""}, default: "-"
         :param width: the width to draw lines with in pt, default: 1.5
         :return: self
@@ -663,6 +676,7 @@ class Theme:
     ):
         """
         Set font styling options.
+
         :param family: font family to use, can be {}, default: sans-serif
         :param cursive: which font(s) to use for cursive text
         :param fantasy: which font(s) to use for fantasy text
@@ -709,6 +723,7 @@ class Theme:
     ):
         """
         Set legend styling options.
+
         :param location: The location of the legend. Can be {'best', 'upper right', 'upper left', 'lower left', 'lower right', 'right', 'center left', 'center right', 'lower center', 'upper center', 'center'} or a 2-tuple giving the coordinates of the lower-left corner. Default: 'best'
         :param round: indicates if legend corners should be rounded or rectangular. Default: True
         :param shadow: indicates if the legend should cast a shadow. Default: False
@@ -719,7 +734,7 @@ class Theme:
         :param padding: space between legend border and legend content in pt. Default: 0.4
         :param margin: space between legend border and axes in pt. Default: 0.5
         :param spacing: spacing of legend elements in pt. Default: 0.5
-        :return:
+        :return: self
         """
         self._update_params(
             "legend",
@@ -742,6 +757,7 @@ class Theme:
     def from_file(cls, filename: str):
         """
         Initialize a theme from a theme file
+
         :param filename: file to load theme dictionary from
         :return: cls
         """
@@ -753,6 +769,7 @@ class Theme:
     def from_dict(cls, data: dict):
         """
         Initialize a theme from a dictionary
+
         :param data: theme dictionary to initialize from
         :return: cls
         """
