@@ -462,7 +462,7 @@ class Theme:
         :param top: display top axis, default: True
         :param bottom: display bottom axis, default: True
         :param left: display left axis, default: True
-        :param right: dislpay right axis, default: True
+        :param right: display right axis, default: True
         :param xmargin: padding added to the x-axis, expressed as margin times the data interval, default: 0.05
         :param ymargin: padding added to the y-axis, expressed as margin times the data interval, default: 0.05
         :param zmargin: padding added to the z-axis, expressed as margin times the data interval, default: 0.05

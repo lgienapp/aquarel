@@ -1,4 +1,4 @@
-# Aquarel 🎨 
+# Aquarel 🎨
 
 [![PyPi](https://img.shields.io/pypi/v/aquarel)](https://pypi.org/project/aquarel/)
 [![License](https://img.shields.io/github/license/lgienapp/aquarel)]()
@@ -44,7 +44,7 @@ from aquarel import load_theme
 
 with load_theme("arctic_light").set_transforms(trim=True):
     figure = # ... plotting code here
-    
+
 # plt.show() or savefig() have to be called outside the context manager to have the transforms correctly applied.
 figure.savefig()
 ```
@@ -94,7 +94,7 @@ theme = load_theme("arctic_light").set_overrides({
 
 ## Themes
 
-aquarel ships with several pre-defined themes that are designed to showcase its templating capabilities. 
+aquarel ships with several pre-defined themes that are designed to showcase its templating capabilities.
 Add your own with a pull request!
 
 | Name            | Description                                                                                      | Preview                                                                              |
@@ -113,7 +113,7 @@ Add your own with a pull request!
 
 ###### How is this different from matplotlib style sheets?
 
-`aquarel` is a wrapper around the stylesheets, so everything you can do with stylesheets can be achieved with `aquarel`. However there are some notable shortcomings of stylesheets that `aquarel` adresses:
+`aquarel` is a wrapper around the stylesheets, so everything you can do with stylesheets can be achieved with `aquarel`. However there are some notable shortcomings of stylesheets that `aquarel` addresses:
 1. **On-the-fly templating** – the stylesheets are applied once and are then used for every plot in the current plotting context (py-file, notebook, ipython session, ...). `aquarel` takes a different approach here and aims to provide per-plot styling with optional temporary changes. The style `aquarel` applies lasts throughout the context manager (`with aquarel.Theme:`), and switches back to whatever is the global default style outside of it. This allows you to do plot-level temporary changes. You have one plot in your notebook that needs no minor ticks? just `with theme.set_ticks():` for this plot only.
 2. **Simplified templating**: matplotlib stylesheets have a lot of redundant keys for most applications. For example, you rarely want to have different colors for both axes; while possible with a stylefile, its cumbersome to change all the different keys to achieve a uniform look. `aquarel` simplifies this with e.x. a single `set_color(ticks="#eee")` call, which changes all related and relevant keys for ticks. Note that this simplifies the API, but does not restrict capabilities: the `set_overrides` method accepts every possible stylefile key if you want to access low-level styling.
-3. **Transforms**: some style elements, like trimmed axes, are not achievable with stylesheets alone (see README for more informations). `aquarel` defines a few of these transforms (and hopefully many more in the future), and makes them persistable and shareable through aquarel themes. Instead of having to apply a seaborn despine after every plot, you can have a global style that specifies a trim, and have consistent styling throughout with minimal code repitition.
+3. **Transforms**: some style elements, like trimmed axes, are not achievable with stylesheets alone (see README for more information). `aquarel` defines a few of these transforms (and hopefully many more in the future), and makes them persistable and shareable through aquarel themes. Instead of having to apply a seaborn despine after every plot, you can have a global style that specifies a trim, and have consistent styling throughout with minimal code repetition.
