@@ -1,61 +1,59 @@
 {
-    "info": {
-        "name": "umbra_dark",
-        "description": "Balanced dark theme based on the penumbra color scheme"
+  "info": {
+    "name": "umbra_dark",
+    "description": "Balanced dark theme based on the penumbra color scheme"
+  },
+  "params": {
+    "axes": {
+      "bottom": true,
+      "top": false,
+      "left": true,
+      "right": false,
+      "xmargin": 0.02,
+      "ymargin": 0.02
     },
-    "params": {
-        "axes": {
-            "bottom": true,
-            "top": false,
-            "left": true,
-            "right": false,
-            "xmargin": 0.02,
-            "ymargin": 0.02
-        },
-        "ticks": {
-            "direction": "inout",
-            "draw_minor": true,
-            "width_major": 2,
-            "width_minor": 0.75,
-            "size_major": 10,
-            "size_minor": 3
-        },
-        "title": {
-            "location": "left",
-            "pad": 10,
-            "weight": "bold"
-        },
-        "grid": {
-            "draw": true,
-            "axis": "both",
-            "ticks": "major",
-            "width": 0.5
-        },
-        "fonts": {
-            "family": "sans-serif",
-            "sans-serif": [
-                "Arial"
-            ]
-        },
-        "colors": {
-            "figure_background_color": "#24272B",
-            "plot_background_color": "#303338",
-            "text_color": "#FFFDFB",
-            "line_color": "#FFF7ED",
-            "axes_color": "#FFF7ED",
-            "grid_color": "#F2E6D4",
-            "tick_color": "#F2E6D4",
-            "tick_label_color": "#F2E6D4",
-            "palette": [
-                "#8C96EC",
-                "#E18163",
-                "#B49E33",
-                "#4EB67F",
-                "#D68B47",
-                "#BE85D1"
-            ]
-        }
+    "ticks": {
+      "direction": "inout",
+      "draw_minor": true,
+      "width_major": 2,
+      "width_minor": 0.75,
+      "size_major": 10,
+      "size_minor": 3
     },
-    "overrides": {},
-    "transforms": {}
+    "title": {
+      "location": "left",
+      "pad": 10,
+      "weight": "bold"
+    },
+    "grid": {
+      "draw": true,
+      "axis": "both",
+      "ticks": "major",
+      "width": 0.5
+    },
+    "fonts": {
+      "family": "sans-serif",
+      "sans-serif": ["Arial"]
+    },
+    "colors": {
+      "figure_background_color": "#24272B",
+      "plot_background_color": "#303338",
+      "text_color": "#FFFDFB",
+      "line_color": "#FFF7ED",
+      "axes_color": "#FFF7ED",
+      "grid_color": "#F2E6D4",
+      "tick_color": "#F2E6D4",
+      "tick_label_color": "#F2E6D4",
+      "palette": [
+        "#8C96EC",
+        "#E18163",
+        "#B49E33",
+        "#4EB67F",
+        "#D68B47",
+        "#BE85D1"
+      ]
+    }
+  },
+  "overrides": {},
+  "transforms": {}
 }
