@@ -1,43 +1,41 @@
 {
-    "info": {
-        "name": "minimal_dark",
-        "description": "Dark theme with minimal visual elements"
+  "info": {
+    "name": "minimal_dark",
+    "description": "Dark theme with minimal visual elements"
+  },
+  "params": {
+    "axes": {
+      "bottom": false,
+      "top": false,
+      "left": false,
+      "right": false
     },
-    "params": {
-        "axes": {
-            "bottom": false,
-            "top": false,
-            "left": false,
-            "right": false
-        },
-        "ticks": {
-            "draw_minor": false,
-            "width_major": 0.5,
-            "size_major": 10
-        },
-        "fonts": {
-            "family": "sans-serif",
-            "sans-serif": [
-                "Helvetica"
-            ]
-        },
-        "axis_labels": {
-            "weight": "light"
-        },
-        "grid": {},
-        "colors": {
-            "figure_background_color": "#000000",
-            "plot_background_color": "#000000",
-            "text_color": "white",
-            "line_color": "white",
-            "tick_color": "#efefef",
-            "tick_label_color": "#efefef"
-        }
+    "ticks": {
+      "draw_minor": false,
+      "width_major": 0.5,
+      "size_major": 10
     },
-    "overrides": {},
-    "transforms": {
-        "offset": {
-            "distance": 5
-        }
+    "fonts": {
+      "family": "sans-serif",
+      "sans-serif": ["Helvetica"]
+    },
+    "axis_labels": {
+      "weight": "light"
+    },
+    "grid": {},
+    "colors": {
+      "figure_background_color": "#000000",
+      "plot_background_color": "#000000",
+      "text_color": "white",
+      "line_color": "white",
+      "tick_color": "#efefef",
+      "tick_label_color": "#efefef"
     }
+  },
+  "overrides": {},
+  "transforms": {
+    "offset": {
+      "distance": 5
+    }
+  }
 }

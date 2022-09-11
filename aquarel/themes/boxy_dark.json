@@ -1,57 +1,50 @@
 {
-    "info": {
-        "name": "boxy_dark",
-        "description": ""
+  "info": {
+    "name": "boxy_dark",
+    "description": ""
+  },
+  "params": {
+    "axes": {
+      "bottom": true,
+      "top": true,
+      "left": true,
+      "right": true,
+      "xmargin": 0.02,
+      "ymargin": 0.02
     },
-    "params": {
-        "axes": {
-            "bottom": true,
-            "top": true,
-            "left": true,
-            "right": true,
-            "xmargin": 0.02,
-            "ymargin": 0.02
-        },
-        "ticks": {
-            "draw_minor": true,
-            "width_major": 0.5,
-            "size_major": 10
-        },
-        "grid": {
-            "draw": true,
-            "axis": "both",
-            "ticks": "major",
-            "alpha": 0.5,
-            "width": 0.5
-        },
-        "fonts": {
-            "sans-serif": [
-                "Arial"
-            ]
-        },
-        "legend": {
-            "round": false,
-            "alpha": 1.0
-        },
-        "colors": {
-            "figure_background_color": "black",
-            "plot_background_color": "black",
-            "text_color": "white",
-            "axes_color": "white",
-            "line_color": "white",
-            "grid_color": "#eeeeee",
-            "tick_color": "white",
-            "tick_label_color": "white",
-            "legend_border_color": "white",
-            "legend_background_color": "black",
-            "palette": [
-                "#3c9797",
-                "#fc6464",
-                "#50c950",
-                "#fca964"
-            ]
-        }
+    "ticks": {
+      "draw_minor": true,
+      "width_major": 0.5,
+      "size_major": 10
     },
-    "overrides": {},
-    "transforms": {}
+    "grid": {
+      "draw": true,
+      "axis": "both",
+      "ticks": "major",
+      "alpha": 0.5,
+      "width": 0.5
+    },
+    "fonts": {
+      "sans-serif": ["Arial"]
+    },
+    "legend": {
+      "round": false,
+      "alpha": 1.0
+    },
+    "colors": {
+      "figure_background_color": "black",
+      "plot_background_color": "black",
+      "text_color": "white",
+      "axes_color": "white",
+      "line_color": "white",
+      "grid_color": "#eeeeee",
+      "tick_color": "white",
+      "tick_label_color": "white",
+      "legend_border_color": "white",
+      "legend_background_color": "black",
+      "palette": ["#3c9797", "#fc6464", "#50c950", "#fca964"]
+    }
+  },
+  "overrides": {},
+  "transforms": {}
 }

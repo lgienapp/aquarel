@@ -1,69 +1,66 @@
 {
-    "info": {
-        "name": "arctic_light",
-        "description": "Frosty light theme based on the  nord) color scheme"
+  "info": {
+    "name": "arctic_light",
+    "description": "Frosty light theme based on the  nord) color scheme"
+  },
+  "params": {
+    "grid": {
+      "draw": true,
+      "axis": "both",
+      "width": 0.4
     },
-    "params": {
-        "grid": {
-            "draw": true,
-            "axis": "both",
-            "width": 0.4
-        },
-        "fonts": {
-            "family": "sans-serif",
-            "sans-serif": [
-                "Helvetica Neue",
-                "Arial"
-            ],
-            "size": 12
-        },
-        "lines": {
-            "width": 1.75
-        },
-        "axes": {
-            "width": 1,
-            "bottom": true,
-            "top": false,
-            "left": true,
-            "right": false,
-            "xmargin": 0.05,
-            "ymargin": 0.05
-        },
-        "axis_labels": {
-            "pad": 5.0
-        },
-        "ticks": {
-            "draw_minor": true,
-            "pad_major": 1,
-            "pad_minor": 1
-        },
-        "tick_labels": {},
-        "colors": {
-            "figure_background_color": "white",
-            "plot_background_color": "#ECEFF4",
-            "text_color": "#3B4252",
-            "axes_color": "#4C566A",
-            "line_color": "#4C566A",
-            "grid_color": "#4C566A",
-            "tick_color": "#4C566A",
-            "tick_label_color": "#3B4252",
-            "palette": [
-                "#8FBCBB",
-                "#BF616A",
-                "#D08770",
-                "#EBCB8B",
-                "#A3BE8C",
-                "#B48EAD"
-            ]
-        }
+    "fonts": {
+      "family": "sans-serif",
+      "sans-serif": ["Helvetica Neue", "Arial"],
+      "size": 12
     },
-    "overrides": {},
-    "transforms": {
-        "trim": {
-            "axis":  "both"
-        },
-        "offset": {
-            "distance": 10
-        }
+    "lines": {
+      "width": 1.75
+    },
+    "axes": {
+      "width": 1,
+      "bottom": true,
+      "top": false,
+      "left": true,
+      "right": false,
+      "xmargin": 0.05,
+      "ymargin": 0.05
+    },
+    "axis_labels": {
+      "pad": 5.0
+    },
+    "ticks": {
+      "draw_minor": true,
+      "pad_major": 1,
+      "pad_minor": 1
+    },
+    "tick_labels": {},
+    "colors": {
+      "figure_background_color": "white",
+      "plot_background_color": "#ECEFF4",
+      "text_color": "#3B4252",
+      "axes_color": "#4C566A",
+      "line_color": "#4C566A",
+      "grid_color": "#4C566A",
+      "tick_color": "#4C566A",
+      "tick_label_color": "#3B4252",
+      "palette": [
+        "#8FBCBB",
+        "#BF616A",
+        "#D08770",
+        "#EBCB8B",
+        "#A3BE8C",
+        "#B48EAD"
+      ]
     }
+  },
+  "overrides": {},
+  "transforms": {
+    "trim": {
+      "axis": "both"
+    },
+    "offset": {
+      "distance": 10
+    }
+  }
 }
