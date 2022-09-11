@@ -11,7 +11,11 @@ Full documentation is available at [aquarel.readthedocs.io](https://aquarel.read
 
 ## Installation
 
-Install via pip: `pip install aquarel`
+Install via pip:
+
+```sh
+python -m pip install aquarel
+```
 
 ## Usage
 
