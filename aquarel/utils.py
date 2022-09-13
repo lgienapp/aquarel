@@ -15,7 +15,7 @@ def load_theme(theme_name: str):
     if theme_name in themes.keys():
         return Theme.from_file(themes[theme_name])
     else:
-        raise ValueError(f"No theme named '{theme_name}' found.")
+        raise ValueError(f"No theme named '{theme_name}' found. Available options are: {list(_get_themes().keys())}")
 
 
 def list_themes():
