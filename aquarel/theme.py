@@ -51,7 +51,7 @@ class Theme:
         "xx-large",
     ]
     # Options for font family
-    _font_family_options = ["serif", "sans_serif", "monospace", "cursive", "fantasy"]
+    _font_family_options = ["serif", "sans-serif", "monospace", "cursive", "fantasy"]
     # Options for font style
     _font_style_options = ["normal", "roman", "italic", "oblique"]
     # Options for font stretch. This is currently not implemented by matplotlib.
@@ -111,36 +111,39 @@ class Theme:
     # Mapping from aquarel keys to matplotlib rcparams
     _rcparams_mapping = {
         "title": {
-            "location": "axes.titlelocation",
-            "pad": "axes.titlepad",
-            "size": "axes.titlesize",
-            "weight": "axes.titleweight",
+            "location": ["axes.titlelocation"],
+            "pad": ["axes.titlepad"],
+            "size": ["axes.titlesize"],
+            "weight": ["axes.titleweight"],
         },
         "grid": {
             "draw": ["polaraxes.grid", "axes.grid", "axes3d.grid"],
-            "axis": "axes.grid.axis",
-            "ticks": "axes.grid.which",
-            "alpha": "grid.alpha",
-            "style": "grid.linestyle",
-            "width": "grid.linewidth",
+            "axis": ["axes.grid.axis"],
+            "ticks": ["axes.grid.which"],
+            "alpha": ["grid.alpha"],
+            "style": ["grid.linestyle"],
+            "width": ["grid.linewidth"],
         },
-        "lines": {"style": "lines.linestyle", "width": "lines.linewidth"},
+        "lines": {
+            "style": ["lines.linestyle"],
+            "width": ["lines.linewidth"]
+        },
         "fonts": {
-            "family": "font.family",
-            "cursive": "font.cursive",
-            "fantasy": "font.fantasy",
-            "monospace": "font.monospace",
-            "sans-serif": "font.sans-serif",
-            "serif": "font.serif",
-            "size": "font.size",
-            "stretch": "font.stretch",
-            "style": "font.style",
-            "variant": "font.variant",
-            "weight": "font.weight",
+            "family": ["font.family"],
+            "cursive": ["font.cursive"],
+            "fantasy": ["font.fantasy"],
+            "monospace": ["font.monospace"],
+            "sans-serif": ["font.sans-serif"],
+            "serif": ["font.serif"],
+            "size": ["font.size"],
+            "stretch": ["font.stretch"],
+            "style": ["font.style"],
+            "variant": ["font.variant"],
+            "weight": ["font.weight"],
         },
         "colors": {
-            "figure_background_color": "figure.facecolor",
-            "plot_background_color": "axes.facecolor",
+            "figure_background_color": ["figure.facecolor"],
+            "plot_background_color": ["axes.facecolor"],
             "axes_color": ["axes.edgecolor", "figure.edgecolor"],
             "line_color": [
                 "boxplot.flierprops.color",
@@ -155,27 +158,27 @@ class Theme:
                 "boxplot.meanprops.markeredgecolor",
             ],
             "text_color": ["text.color", "axes.titlecolor", "axes.labelcolor"],
-            "grid_color": "grid.color",
+            "grid_color": ["grid.color"],
             "tick_color": ["xtick.color", "ytick.color"],
             "tick_label_color": ["xtick.labelcolor", "ytick.labelcolor"],
-            "legend_background_color": "legend.facecolor",
-            "legend_border_color": "legend.edgecolor",
-            "axis_label_color": "axes.labelcolor",
-            "palette": "axes.prop_cycle",
+            "legend_background_color": ["legend.facecolor"],
+            "legend_border_color": ["legend.edgecolor"],
+            "axes_label_color": ["axes.labelcolor"],
+            "palette": "axes.prop_cycle", # This should be just a string unlike others, otherwise set_color(palette=...) won't work.
         },
         "axes": {
-            "width": "axes.linewidth",
-            "bottom": "axes.spines.bottom",
-            "left": "axes.spines.left",
-            "right": "axes.spines.right",
-            "top": "axes.spines.top",
-            "xmargin": "axes.xmargin",
-            "ymargin": "axes.ymargin",
-            "zmargin": "axes.zmargin",
+            "width": ["axes.linewidth"],
+            "bottom": ["axes.spines.bottom"],
+            "left": ["axes.spines.left"],
+            "right": ["axes.spines.right"],
+            "top": ["axes.spines.top"],
+            "xmargin": ["axes.xmargin"],
+            "ymargin": ["axes.ymargin"],
+            "zmargin": ["axes.zmargin"],
         },
         "ticks": {
-            "x_align": "xtick.alignment",
-            "y_align:": "ytick.alignment",
+            "x_align": ["xtick.alignment"],
+            "y_align": ["ytick.alignment"],
             "direction": ["xtick.direction", "ytick.direction"],
             "draw_minor": ["xtick.minor.visible", "ytick.minor.visible"],
             "width_minor": ["xtick.minor.width", "ytick.minor.width"],
@@ -186,28 +189,28 @@ class Theme:
             "pad_minor": ["xtick.minor.pad", "ytick.minor.pad"],
         },
         "axis_labels": {
-            "pad": "axes.labelpad",
-            "size": "axes.labelsize",
-            "weight": "axes.labelweight",
+            "pad": ["axes.labelpad"],
+            "size": ["axes.labelsize"],
+            "weight": ["axes.labelweight"],
         },
         "tick_labels": {
             "location": ["xaxis.labellocation", "yaxis.labellocation"],
             "size": ["xtick.labelsize", "ytick.labelsize"],
-            "bottom": "xtick.labelbottom",
-            "top": "xtick.labeltop",
-            "left": "ytick.labelleft",
-            "right": "ytick.labelright",
+            "bottom": ["xtick.labelbottom"],
+            "top": ["xtick.labeltop"],
+            "left": ["ytick.labelleft"],
+            "right": ["ytick.labelright"],
         },
         "legend": {
-            "location": "legend.loc",
-            "round": "legend.fancybox",
-            "shadow": "legend.shadow",
-            "title_size": "legend.title_fontsize",
-            "text_size": "legend.fontsize",
-            "alpha": "legend.framealpha",
-            "marker_scale": "legend.markerscale",
-            "padding": "legend.borderpad",
-            "margin": "legend.borderaxespad",
+            "location": ["legend.loc"],
+            "round": ["legend.fancybox"],
+            "shadow": ["legend.shadow"],
+            "title_size": ["legend.title_fontsize"],
+            "text_size": ["legend.fontsize"],
+            "alpha": ["legend.framealpha"],
+            "marker_scale": ["legend.markerscale"],
+            "padding": ["legend.borderpad"],
+            "margin": ["legend.borderaxespad"],
             "spacing": ["legend.handletextpad", "legend.labelspacing"]
         }
     }
@@ -401,7 +404,7 @@ class Theme:
         self._update_params(
             "title",
             {
-                "location": location if location in self._location_options else None,
+                "location": location if location in self._horizontal_alignment_options else None,
                 "pad": pad,
                 "size": size
                 if (size in self._font_size_options or type(size) == float)
@@ -626,7 +629,7 @@ class Theme:
                 "x_align": x_align
                 if x_align in self._horizontal_alignment_options
                 else None,
-                "y_align:": y_align
+                "y_align": y_align
                 if y_align in self._vertical_alignment_options
                 else None,
                 "direction": direction
