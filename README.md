@@ -117,6 +117,8 @@ Add your own with a pull request!
 | `arctic_light`  | Frosty dark theme based on the [nord](https://github.com/arcticicestudio/nord) color scheme      | ![](https://github.com/lgienapp/aquarel/blob/main/assets/arctic_light.png?raw=true)  |
 | `boxy_dark`     | Dark theme with enclosing box and grid                                                           | ![](https://github.com/lgienapp/aquarel/blob/main/assets/boxy_dark.png?raw=true)     |
 | `boxy_light`    | Light theme with enclosing box and grid                                                          | ![](https://github.com/lgienapp/aquarel/blob/main/assets/boxy_light.png?raw=true)    |
+| `gruvbox_dark`  | Dark theme with pastel [retro groove colors](https://github.com/morhetz/gruvbox)                 | ![](https://github.com/lgienapp/aquarel/blob/main/assets/gruvbox_dark.png?raw=true)  |
+| `gruvbox_light` | Light theme with pastel [retro groove colors](https://github.com/morhetz/gruvbox)                | ![](https://github.com/lgienapp/aquarel/blob/main/assets/gruvbox_light.png?raw=true) |
 | `minimal_dark`  | Dark theme with minimal visual elements                                                          | ![](https://github.com/lgienapp/aquarel/blob/main/assets/minimal_dark.png?raw=true)  |
 | `minimal_light` | Light theme with minimal visual elements                                                         | ![](https://github.com/lgienapp/aquarel/blob/main/assets/minimal_light.png?raw=true) |
 | `scientific`    | Space-efficient and color-blind friendly theme for printing on paper                             | ![](https://github.com/lgienapp/aquarel/blob/main/assets/scientific.png?raw=true)    |
