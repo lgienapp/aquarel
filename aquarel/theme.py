@@ -428,7 +428,7 @@ class Theme:
 
         :param draw: True if grid should be drawn, False otherwise, default: False
         :param axis: axes along which the grid should be drawn, can be {"both", "x", "y"}, default: "both"
-        :param ticks: which tick level to base the grid on, can be {"major", "minor"}, default: "major"
+        :param ticks: which tick level to base the grid on, can be {"major", "minor", "both"}, default: "major"
         :param alpha: the alpha level to draw the grid with, can be float between 0 and 1, default: 1.0
         :param style: the line style to draw the grid with, can be {"-", "--", "-.", ":", ""}, default: "-"
         :param width: the line width to draw the grid with in pt, default: 0.8
@@ -548,7 +548,7 @@ class Theme:
         Set axis label styling options.
 
         :param pad: padding of the axis label
-        :param size: font size of the axis label, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "normal"
+        :param size: font size of the axis label, can be {"xx-small", "x-small", "small", "medium", "large", "x-large", "xx-large"}, default: "medium"
         :param weight: font weight of the axis label, can be {"ultralight", "light", "normal", "regular", "book", "medium", "roman", "semibold", "demibold", "demi", "bold", "heavy", "extra bold", "black"}, default: "normal"
         :return: self
         """
