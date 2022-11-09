@@ -54,20 +54,6 @@ class Theme:
     _font_family_options = ["serif", "sans-serif", "monospace", "cursive", "fantasy"]
     # Options for font style
     _font_style_options = ["normal", "roman", "italic", "oblique"]
-    # Options for font stretch. This is currently not implemented by matplotlib.
-    _font_stretch_options = [
-        "ultra-condensed",
-        "extra-condensed",
-        "condensed",
-        "semi-condensed",
-        "normal",
-        "semi-expanded",
-        "expanded",
-        "extra-expanded",
-        "ultra-expanded",
-        "wider",
-        "narrower",
-    ]
     # Options for font variants.
     _font_variant_options = ["normal", "small-caps"]
     # Options for font weights
@@ -136,7 +122,6 @@ class Theme:
             "sans-serif": ["font.sans-serif"],
             "serif": ["font.serif"],
             "size": ["font.size"],
-            "stretch": ["font.stretch"],
             "style": ["font.style"],
             "variant": ["font.variant"],
             "weight": ["font.weight"],
@@ -672,7 +657,6 @@ class Theme:
         sans_serif: Optional[Union[str, List[str]]] = None,
         serif: Optional[Union[str, List[str]]] = None,
         size: Optional[Union[float, int]] = None,
-        stretch: Optional[str] = None,
         style: Optional[str] = None,
         variant: Optional[str] = None,
         weight: Optional[Union[float, int, str]] = None,
@@ -687,7 +671,6 @@ class Theme:
         :param sans_serif: which font(s) to use for sans-serif text
         :param serif: which font(s) to use for serif text
         :param size: base font size in pt that all other elements scale relative to, default: 10.0
-        :param stretch: font stretch, can be {"ultra-condensed", "extra-condensed", "condensed", "semi-condensed", "normal", "semi-expanded", "expanded", "extra-expanded", "ultra-expanded", "wider", "narrower"}, default: normal
         :param style: font style, can be {"normal", "roman", "italic", "oblique"}, default: normal
         :param variant: font variant, can be {"normal", "small-caps"}, default: normal
         :param weight: font weight, can be {"ultralight", "light", "normal", "regular", "book", "medium", "roman", "semibold", "demibold", "demi", "bold", "heavy", "extra bold", "black"}, default: normal
@@ -703,7 +686,6 @@ class Theme:
                 "sans-serif": _wrap_list_arg(sans_serif),
                 "serif": _wrap_list_arg(serif),
                 "size": size if (type(size) == float or type(size) == int) else None,
-                "stretch": stretch if stretch in self._font_stretch_options else None,
                 "style": style if style in self._font_style_options else None,
                 "variant": variant if variant in self._font_variant_options else None,
                 "weight": weight if weight in self._font_weight_options else None,
