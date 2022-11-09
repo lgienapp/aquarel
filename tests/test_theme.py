@@ -200,7 +200,6 @@ class TestTheme(unittest.TestCase):
         font_test("sans-serif", [["DejaVu Sans", "Bitstream Vera Sans"]])
         font_test("serif", [["DejaVu Serif", "Bitstream Vera Serif"]])
         font_test("size", [0, 5, 15, 50])
-        font_test("stretch", self.theme._font_stretch_options)
         font_test("style", self.theme._font_style_options)
         font_test("variant", self.theme._font_variant_options)
         font_test("weight", self.theme._font_weight_options)
