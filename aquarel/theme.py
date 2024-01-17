@@ -234,7 +234,7 @@ class Theme:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         with warnings.catch_warnings():
-            warnings.simplefilter("ignore", mpl.cbook.MatplotlibDeprecationWarning)
+            warnings.simplefilter("ignore", mpl.MatplotlibDeprecationWarning)
             mpl.rcParams.update(self.rcparams_orig)
         self.apply_transforms()
 
