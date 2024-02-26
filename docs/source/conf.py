@@ -11,9 +11,9 @@ sys.path.insert(0, os.path.abspath('../../'))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'aquarel'
-copyright = '2022, Lukas Gienapp'
+copyright = '2024, Lukas Gienapp'
 author = 'Lukas Gienapp'
-release = '0.0.5'
+release = '0.0.6'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
