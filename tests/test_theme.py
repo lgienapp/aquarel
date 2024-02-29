@@ -226,6 +226,21 @@ class TestTheme(unittest.TestCase):
         legend_test("margin", [0, 0.5, 1.5, 5])
         legend_test("spacing", [0, 0.5, 1.5, 5])
 
+    def test_set_tick_label(self):
+        def tick_label_test(parameter, option):
+            print(f"\n***** set_tick_labels.{parameter} *****")
+            print(f"> set tick_labels.{parameter} to be {option}")
+            with self.theme.set_tick_labels(**{parameter: option}):
+                for param in self.theme._rcparams_mapping["tick_labels"][parameter]:
+                    print(f'>> check if plt.rcParams["{param}"] == {option}')
+                    self.assertEqual(option, plt.rcParams[param])
+
+        tick_label_test("location", "center")
+        tick_label_test("location", "left")
+        tick_label_test("location", "right")
+        tick_label_test("location", "bottom")
+        tick_label_test("location", "top")
+
 
 if __name__ == "__main__":
     unittest.main()
