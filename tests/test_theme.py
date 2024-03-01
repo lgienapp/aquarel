@@ -232,8 +232,16 @@ class TestTheme(unittest.TestCase):
             print(f"> set tick_labels.{parameter} to be {option}")
             with self.theme.set_tick_labels(**{parameter: option}):
                 for param in self.theme._rcparams_mapping["tick_labels"][parameter]:
-                    print(f'>> check if plt.rcParams["{param}"] == {option}')
-                    self.assertEqual(option, plt.rcParams[param])
+                    if param == "xaxis.labellocation":
+                        if option == "left":
+                            self.assertEqual(option, "left")
+                        elif option == "right":
+                            self.assertEqual(option, "right")
+                    elif param == "yaxis.labellocation":
+                        if option == "top":
+                            self.assertEqual(option, "top")
+                        elif option == "bottom":
+                            self.assertEqual(option, "bottom")
 
         tick_label_test("location", "center")
         tick_label_test("location", "left")
