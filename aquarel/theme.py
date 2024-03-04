@@ -311,7 +311,7 @@ class Theme:
                         if mapped_key == "axes.prop_cycle":
                             value = cycler("color", value)
                         if sub_key == "xaxis.labellocation":
-                            if value not in ["left", "right", "ceter"]:
+                            if value not in ["left", "right", "center"]:
                                 value = mpl.rcParamsDefault[sub_key]
                         elif sub_key == "yaxis.labellocation":
                             if value not in ["top", "bottom", "center"]:
