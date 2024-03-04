@@ -237,11 +237,15 @@ class TestTheme(unittest.TestCase):
                             self.assertEqual(option, "left")
                         elif option == "right":
                             self.assertEqual(option, "right")
+                        elif option == "center":
+                            self.assertEqual(option, "center")
                     elif param == "yaxis.labellocation":
                         if option == "top":
                             self.assertEqual(option, "top")
                         elif option == "bottom":
                             self.assertEqual(option, "bottom")
+                        elif option == "center":
+                            self.assertEqual(option, "center")
 
         tick_label_test("location", "center")
         tick_label_test("location", "left")
