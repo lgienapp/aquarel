@@ -20,7 +20,7 @@ setuptools.setup(
     package_data={'aquarel': ['themes/*.json']},
     include_package_data=True,
     python_requires='>3.7',
-    install_requires=['matplotlib>=3.4.0', 'cycler'],
+    install_requires=['matplotlib>=3.4.0', 'cycler', 'seaborn'],
     keywords=["theme", "plotting", "visualization", "styling", "matplotlib"],
     classifiers=[  # https://pypi.org/classifiers
         'Development Status :: 4 - Beta',

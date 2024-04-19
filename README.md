@@ -113,6 +113,7 @@ Add your own with a pull request!
 
 | Name            | Description                                                                                      | Preview                                                                              |
 | :-------------- | :----------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
+| [`ambivalent`](https://github.com/saforem2/ambivalent)   | Transparent backgrounds with grey text $\textcolor{#838383}{\blacksquare}$ that are accessible / legible and `{light, dark}`-mode independent | ![](https://github.com/saforem2/aquarel/blob/main/assets/ambivalent.png?raw=true)   |
 | `arctic_dark`   | Frosty dark theme based on the [nord](https://github.com/arcticicestudio/nord) color scheme      | ![](https://github.com/lgienapp/aquarel/blob/main/assets/arctic_dark.png?raw=true)   |
 | `arctic_light`  | Frosty dark theme based on the [nord](https://github.com/arcticicestudio/nord) color scheme      | ![](https://github.com/lgienapp/aquarel/blob/main/assets/arctic_light.png?raw=true)  |
 | `boxy_dark`     | Dark theme with enclosing box and grid                                                           | ![](https://github.com/lgienapp/aquarel/blob/main/assets/boxy_dark.png?raw=true)     |

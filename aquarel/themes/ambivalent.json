@@ -1,0 +1,84 @@
+{
+  "info": {
+    "name": "ambivalent",
+    "description": "Ambivalent 🤷🏻‍, a {light,dark} mode independent theme, with transparent backgrtounds and grey, visible text.}"
+  },
+  "params": {
+    "grid": {
+      "draw": true,
+      "axis": "both",
+      "alpha": 0.25,
+      "width": 0.4
+    },
+    "fonts": {
+      "family": "sans-serif",
+      "sans-serif": ["IBM Plex Sans", "Helvetica Neue", "Arial"],
+      "size": 12
+    },
+    "lines": {
+      "width": 1.75
+    },
+    "axes": {
+      "width": 0,
+      "bottom": true,
+      "top": false,
+      "left": true,
+      "right": false,
+      "xmargin": 0.05,
+      "ymargin": 0.05
+    },
+    "axis_labels": {
+      "pad": 5.0
+    },
+    "ticks": {
+      "draw_minor": false,
+      "pad_major": 1,
+      "pad_minor": 1
+    },
+    "tick_labels": {},
+    "colors": {
+      "figure_background_color": "none",
+      "plot_background_color": "none",
+      "text_color": "#838383",
+      "axes_color": "#838383",
+      "line_color": "#838383",
+      "tick_color": "none",
+      "tick_label_color": "#838383",
+      "palette": [
+        "#2196F3",
+        "#EF5350",
+        "#4CAF50",
+        "#FFA726",
+        "#AE81FF",
+        "#ffeb3b",
+        "#EC407A",
+        "#009688",
+        "#838383"
+      ]
+    }
+  },
+  "image": {
+    "cmap": "viridis"
+  },
+  "savefig": {
+    "format": "svg",
+    "bbox": "tight",
+    "transparent": true
+  },
+  "legend": {
+    "frameon": false,
+    "location": "best",
+    "facecolor": "#efefef",
+    "bbox_alpha": 0.8
+  },
+  "overrides": {},
+  "transforms": {
+    "trim": {
+      "axis": "both"
+    },
+    "offset": {
+      "distance": 10
+    }
+  }
+}
+
