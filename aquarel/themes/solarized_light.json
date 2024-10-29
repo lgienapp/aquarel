@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "solarized_light",
+    "description": "port of the solarized_light theme by E. Schoonover"
+  },
+  "params": {
+    "grid": {
+      "draw": false
+    },
+    "fonts": {
+      "family": "sans-serif",
+      "sans-serif": [
+        "Helvetica Neue",
+        "Arial"
+      ],
+      "size": 12
+    },
+    "lines": {
+      "width": 2
+    },
+    "axes": {
+      "width": 1,
+      "bottom": true,
+      "top": true,
+      "left": true,
+      "right": true,
+      "xmargin": 0.05,
+      "ymargin": 0.05
+    },
+    "axis_labels": {
+      "pad": 5.0
+    },
+    "ticks": {
+      "draw_minor": true,
+      "direction": "out",
+      "pad_major": 1,
+      "pad_minor": 1
+    },
+    "tick_labels": {},
+    "colors": {
+      "figure_background_color": "#eee8d5",
+      "plot_background_color": "#fdf6e3",
+      "text_color": "#93a1a1",
+      "axes_color": "#839496",
+      "tick_color": "#93a1a1",
+      "tick_label_color": "#839496",
+      "palette": [
+        "#6c71c4",
+        "#b58900",
+        "#d33682",
+        "#6c71c4",
+        "#2aa198",
+        "#cb4b16",
+        "#859900",
+        "#dc322f",
+        "#073642",
+        "#268bd2"
+      ]
+    }
+  },
+  "overrides": {},
+  "transforms": {
+    "trim": {
+      "axis": "both"
+    },
+    "offset": {
+      "distance": 10
+    }
+  }
+}
