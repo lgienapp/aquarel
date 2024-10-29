@@ -1,7 +1,7 @@
 {
   "info": {
-    "name": "arctic_dark",
-    "description": "Frosty dark theme based on the nord color scheme"
+    "name": "solarized_dark",
+    "description": "port of the solarized_dark theme by E. Schoonover"
   },
   "params": {
     "grid": {
