@@ -753,7 +753,7 @@ class Theme:
         :param filename: file to load theme dictionary from
         :return: cls
         """
-        with open(filename, "r") as f:
+        with open(filename, "r", encoding='utf8') as f:
             data = json.load(f)
         return cls.from_dict(data)
 
