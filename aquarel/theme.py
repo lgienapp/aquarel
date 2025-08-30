@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import warnings
 import json
 from .transforms import *
+from .exceptions import ThemeValidationError, ThemeLoadError, TransformError
 
 
 def _wrap_list_arg(arg: Optional[Union[str, List[str]]]) -> Optional[List[str]]:
@@ -759,10 +760,18 @@ class Theme:
 
         :param filename: file to load theme dictionary from
         :return: cls
+        :raises ThemeLoadError: if file loading fails
         """
-        with open(filename, "r", encoding='utf8') as f:
-            data = json.load(f)
-        return cls.from_dict(data)
+        try:
+            with open(filename, "r", encoding="utf8") as f:
+                data = json.load(f)
+            return cls.from_dict(data)
+        except FileNotFoundError:
+            raise ThemeLoadError(filename, "File not found")
+        except json.JSONDecodeError as e:
+            raise ThemeLoadError(filename, f"Invalid JSON: {e}")
+        except Exception as e:
+            raise ThemeLoadError(filename, f"Unexpected error: {e}")
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> 'Theme':

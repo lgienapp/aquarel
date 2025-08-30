@@ -1,6 +1,7 @@
 import glob
 import os
 from .theme import Theme
+from .exceptions import ThemeNotFoundError
 from typing import Optional, Union, List, Dict, Tuple
 from pathlib import Path
 
@@ -23,7 +24,7 @@ def load_theme(theme_name: str) -> Theme:
     if theme_name in themes.keys():
         return Theme.from_file(themes[theme_name])
     else:
-        raise ValueError(f"No theme named '{theme_name}' found. Available options are: {list(_get_themes().keys())}")
+        raise ThemeNotFoundError(theme_name, list(themes.keys()))
 
 
 def list_themes() -> List[str]:
