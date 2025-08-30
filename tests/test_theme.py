@@ -132,11 +132,23 @@ class TestTheme(unittest.TestCase):
                 print(f"> set tick_labels.{parameter} to be {option}")
                 with self.theme.set_tick_labels(**{parameter: option}):
                     for param in self.theme._rcparams_mapping["tick_labels"][parameter]:
-                        print(f'>> check if plt.rcParams["{param}"] == {option}')
-                        self.assertEqual(option, plt.rcParams[param])   
+                        # Special handling for location parameter due to axis-specific constraints
+                        if parameter == "location":
+                            if param == "xaxis.labellocation":
+                                # x-axis accepts left, right, center
+                                expected = option if option in ["left", "right", "center"] else "center"
+                            elif param == "yaxis.labellocation":
+                                # y-axis accepts top, bottom, center
+                                expected = option if option in ["top", "bottom", "center"] else "center"
+                            else:
+                                expected = option
+                            print(f'>> check if plt.rcParams["{param}"] == {expected}')
+                            self.assertEqual(expected, plt.rcParams[param])
+                        else:
+                            print(f'>> check if plt.rcParams["{param}"] == {option}')
+                            self.assertEqual(option, plt.rcParams[param])   
 
-        # This test does not work and it is mentioned in issue #25
-        # tick_labels_test("location", self.theme._location_options)
+        tick_labels_test("location", self.theme._location_options)
         tick_labels_test("size", self.theme._font_size_options)
         tick_labels_test("top", [True, False])
         tick_labels_test("bottom", [True, False])

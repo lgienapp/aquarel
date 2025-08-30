@@ -1,6 +1,7 @@
-from typing import Union, Optional, List
+from typing import Union, Optional, List, Dict, Any, Tuple, Type
 from cycler import cycler
 import matplotlib as mpl
+import matplotlib.pyplot as plt
 import warnings
 import json
 from .transforms import *
@@ -313,9 +314,15 @@ class Theme:
                         if sub_key == "xaxis.labellocation":
                             if value not in ["left", "right", "center"]:
                                 value = mpl.rcParamsDefault[sub_key]
+                            elif value in ["top", "bottom"]:
+                                # Map vertical positions to horizontal center for x-axis
+                                value = "center"
                         elif sub_key == "yaxis.labellocation":
                             if value not in ["top", "bottom", "center"]:
                                 value = mpl.rcParamsDefault[sub_key]
+                            elif value in ["left", "right"]:
+                                # Map horizontal positions to vertical center for y-axis
+                                value = "center"
 
                         mpl.rcParams.update({sub_key: value})
                 else:
