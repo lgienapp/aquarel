@@ -7,7 +7,7 @@ import json
 from .transforms import *
 
 
-def _wrap_list_arg(arg):
+def _wrap_list_arg(arg: Optional[Union[str, List[str]]]) -> Optional[List[str]]:
     if arg is None:
         return arg
     if type(arg) == list:
@@ -201,8 +201,8 @@ class Theme:
         }
     }
 
-    def __init__(self, name: Optional[str] = None, description: Optional[str] = None):
-        self.info = {}
+    def __init__(self, name: Optional[str] = None, description: Optional[str] = None) -> None:
+        self.info: Dict[str, str] = {}
         if name is not None:
             self.info["name"] = name
         else:
@@ -211,11 +211,11 @@ class Theme:
             self.info["description"] = description
         else:
             self.info["description"] = "No description available."
-        self.params = {}
-        self.overrides = {}
-        self.transforms = {}
+        self.params: Dict[str, Dict[str, Any]] = {}
+        self.overrides: Dict[str, Any] = {}
+        self.transforms: Dict[str, Dict[str, Any]] = {}
 
-    def __str__(self):
+    def __str__(self) -> str:
         """Renders theme as JSON string"""
         return json.dumps(
             {
@@ -227,19 +227,19 @@ class Theme:
             indent=4,
         )
 
-    def __enter__(self):
+    def __enter__(self) -> 'Theme':
         # Save current state
         self.rcparams_orig = mpl.rcParams
         # Apply desired state
         self.apply()
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self, exc_type: Optional[Type[BaseException]], exc_val: Optional[BaseException], exc_tb: Optional[Any]) -> None:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", mpl.MatplotlibDeprecationWarning)
             mpl.rcParams.update(self.rcparams_orig)
         self.apply_transforms()
 
-    def _update_params(self, param_key, value_dict):
+    def _update_params(self, param_key: str, value_dict: Dict[str, Any]) -> None:
         """
         Updates the parameters of the theme.
 
@@ -262,7 +262,7 @@ class Theme:
             # Add new options if previously unspecified
             self.params[param_key] = value_dict
 
-    def _update_transforms(self, value_dict):
+    def _update_transforms(self, value_dict: Dict[str, Optional[Dict[str, Any]]]) -> None:
         """
         Updates the transforms of the theme.
 
@@ -278,7 +278,7 @@ class Theme:
         )
         self.transforms = transforms
 
-    def save(self, path: str):
+    def save(self, path: str) -> None:
         """
         Write the template to a JSON template file
 
@@ -296,7 +296,7 @@ class Theme:
                 indent=4,
             )
 
-    def apply(self):
+    def apply(self) -> None:
         """
         Applies the theme
         """
@@ -333,7 +333,7 @@ class Theme:
         if self.overrides is not None:
             mpl.rcParams.update(self.overrides)
 
-    def apply_transforms(self):
+    def apply_transforms(self) -> None:
         """
         Applies the themes' transforms
         """
@@ -342,11 +342,11 @@ class Theme:
 
     def set_transforms(
         self,
-        trim: Optional[bool] = None,
+        trim: Optional[str] = None,
         offset: Optional[int] = None,
         rotate_xlabel: Optional[int] = None,
         rotate_ylabel: Optional[int] = None,
-    ):
+    ) -> 'Theme':
         """
         Set the transforms
 
@@ -371,7 +371,7 @@ class Theme:
         )
         return self
 
-    def set_overrides(self, rc: dict):
+    def set_overrides(self, rc: Dict[str, Any]) -> 'Theme':
         """
         Set custom overrides of rcparam parameters directly
 
@@ -387,7 +387,7 @@ class Theme:
         size: Optional[Union[float, str]] = None,
         weight: Optional[Union[float, int, str]] = None,
         pad: Optional[float] = None,
-    ):
+    ) -> 'Theme':
         """
         Sets title styling options.
 
@@ -421,7 +421,7 @@ class Theme:
         alpha: Optional[float] = None,
         style: Optional[str] = None,
         width: Optional[float] = None,
-    ):
+    ) -> 'Theme':
         """
         Set grid styling options.
 
@@ -456,7 +456,7 @@ class Theme:
         xmargin: Optional[float] = None,
         ymargin: Optional[float] = None,
         zmargin: Optional[float] = None,
-    ):
+    ) -> 'Theme':
         """
         Set axis styling options
 
@@ -500,7 +500,7 @@ class Theme:
         legend_background_color: Optional[str] = None,
         legend_border_color: Optional[str] = None,
 
-    ):
+    ) -> 'Theme':
         """
         Sets color options.
 
@@ -542,7 +542,7 @@ class Theme:
         pad: Optional[Union[float, int]] = None,
         size: Optional[str] = None,
         weight: Optional[str] = None,
-    ):
+    ) -> 'Theme':
         """
         Set axis label styling options.
 
@@ -563,13 +563,13 @@ class Theme:
 
     def set_tick_labels(
         self,
-        location: str = None,
-        size: str = None,
-        left: bool = None,
-        right: bool = None,
-        bottom: bool = None,
-        top: bool = None,
-    ):
+        location: Optional[str] = None,
+        size: Optional[str] = None,
+        left: Optional[bool] = None,
+        right: Optional[bool] = None,
+        bottom: Optional[bool] = None,
+        top: Optional[bool] = None,
+    ) -> 'Theme':
         """
         Set tick label styling options.
 
@@ -606,7 +606,7 @@ class Theme:
         size_minor: Optional[Union[float, int]] = None,
         pad_major: Optional[Union[float, int]] = None,
         pad_minor: Optional[Union[float, int]] = None,
-    ):
+    ) -> 'Theme':
         """
         Set styling options for ticks.
 
@@ -645,7 +645,7 @@ class Theme:
         )
         return self
 
-    def set_lines(self, style: Optional[str] = None, width: Optional[float] = None):
+    def set_lines(self, style: Optional[str] = None, width: Optional[float] = None) -> 'Theme':
         """
         Set line styling options.
 
@@ -674,7 +674,7 @@ class Theme:
         style: Optional[str] = None,
         variant: Optional[str] = None,
         weight: Optional[Union[float, int, str]] = None,
-    ):
+    ) -> 'Theme':
         """
         Set font styling options.
 
@@ -709,7 +709,7 @@ class Theme:
 
     def set_legend(
         self,
-        location: Optional[str] = None,
+        location: Optional[Union[str, Tuple[float, float]]] = None,
         round: Optional[bool] = None,
         shadow: Optional[bool] = None,
         title_size: Optional[str] = None,
@@ -719,7 +719,7 @@ class Theme:
         padding: Optional[Union[int, float]] = None,
         margin: Optional[Union[int, float]] = None,
         spacing: Optional[Union[int, float]] = None
-    ):
+    ) -> 'Theme':
         """
         Set legend styling options.
 
@@ -753,7 +753,7 @@ class Theme:
         return self
 
     @classmethod
-    def from_file(cls, filename: str):
+    def from_file(cls, filename: str) -> 'Theme':
         """
         Initialize a theme from a theme file
 
@@ -765,7 +765,7 @@ class Theme:
         return cls.from_dict(data)
 
     @classmethod
-    def from_dict(cls, data: dict):
+    def from_dict(cls, data: Dict[str, Any]) -> 'Theme':
         """
         Initialize a theme from a dictionary
 

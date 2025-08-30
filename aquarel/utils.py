@@ -1,7 +1,7 @@
 import glob
 import os
 from .theme import Theme
-from typing import Optional, Union
+from typing import Optional, Union, List, Dict, Tuple
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -11,7 +11,7 @@ HERE = Path(__file__).parent.resolve()
 ASSETS_DIR = HERE.parent / "assets"
 
 
-def load_theme(theme_name: str):
+def load_theme(theme_name: str) -> Theme:
     """
     Sets the chosen style and color palette globally.
 
@@ -26,7 +26,7 @@ def load_theme(theme_name: str):
         raise ValueError(f"No theme named '{theme_name}' found. Available options are: {list(_get_themes().keys())}")
 
 
-def list_themes():
+def list_themes() -> List[str]:
     """
     Returns a list of available theme names.
 
@@ -35,7 +35,7 @@ def list_themes():
     return list(_get_themes().keys())
 
 
-def _get_themes():
+def _get_themes() -> Dict[str, str]:
     """
     Returns available themes from the theme directory
 
@@ -49,7 +49,7 @@ def _get_themes():
         )
     )
 
-def make_graph():
+def make_graph() -> Tuple[plt.Figure, List[plt.Axes]]:
     geysers = (
         sns.load_dataset("geyser")
         .rename(
@@ -84,7 +84,7 @@ def make_graph():
 def _sample_plot(
         theme: Union[Theme, str],
         save_as: Optional[str] = None
-):
+) -> None:
     """
     Generates a sample plot for a given theme. Optionally saves it to the specified location.
 
@@ -120,7 +120,7 @@ def _sample_plot(
         plt.show()
 
 
-def make_samples():
+def make_samples() -> None:
     """
     Generates sample plots for all themes to be used in documentation
     """

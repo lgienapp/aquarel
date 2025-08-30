@@ -1,8 +1,9 @@
+from typing import Union
 import matplotlib.pyplot as plt
 import numpy as np
 
 
-def rotate_ylabel(degrees: int):
+def rotate_ylabel(degrees: int) -> None:
     """
     Rotates the y-labels of the current plot.
 
@@ -13,7 +14,7 @@ def rotate_ylabel(degrees: int):
         ax_i.tick_params(axis="y", rotation=degrees)
 
 
-def rotate_xlabel(degrees: int):
+def rotate_xlabel(degrees: int) -> None:
     """
     Rotates the x-labels of the current plot.
 
@@ -24,7 +25,7 @@ def rotate_xlabel(degrees: int):
         ax_i.tick_params(axis="x", rotation=degrees)
 
 
-def offset(distance: int):
+def offset(distance: int) -> None:
     """
     Offsets the plot spines.
     Code partly taken from https://github.com/mwaskom/seaborn/blob/563e96d3be1eaee8db8dfbccf7eed1f1c66dfd31/seaborn/utils.py#L292
@@ -37,7 +38,7 @@ def offset(distance: int):
             ax_i.spines[side].set_position(("outward", distance))
 
 
-def trim(axis: str):
+def trim(axis: str) -> None:
     """
     Trims axes of a plot to first and last major tick.
     Code partly taken from https://github.com/mwaskom/seaborn/blob/563e96d3be1eaee8db8dfbccf7eed1f1c66dfd31/seaborn/utils.py#L292
