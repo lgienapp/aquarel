@@ -1,7 +1,7 @@
 import glob
 import os
 from .theme import Theme
-from typing import Optional, Union
+from typing import Literal, Optional, Union
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -9,9 +9,13 @@ import seaborn as sns
 
 HERE = Path(__file__).parent.resolve()
 ASSETS_DIR = HERE.parent / "assets"
+ValidThemes = Literal[
+    'ambivalent', 'arctic_dark', 'arctic_light', 'boxy_dark', 'boxy_light', 'gruvbox_dark',
+    'gruvbox_light', 'minimal_dark', 'minimal_light', 'scientific', 'solarized_dark',
+    'solarized_light', 'umbra_dark', 'umbra_light'
+]
 
-
-def load_theme(theme_name: str):
+def load_theme(theme_name: ValidThemes):
     """
     Sets the chosen style and color palette globally.
 
